@@ -1,0 +1,2 @@
+all reusable components in the application
+can be split by domain if there are many
