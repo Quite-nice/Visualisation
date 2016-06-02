@@ -1,11 +1,15 @@
-// Import Tinytest from the tinytest Meteor package.
-import { Tinytest } from "meteor/tinytest";
+import { expect } from 'meteor/practicalmeteor:chai';
+import { Mongo } from 'meteor/mongo'
 
-// Import and rename a variable exported by publication.js.
-import { name as packageName } from "meteor/mock-github";
+const Modules = new Mongo.Collection('modules');
+const Events = new Mongo.Collection('events');
 
-// Write your tests here!
-// Here is an example.
-Tinytest.add('mock-github - example', function (test) {
-  test.equal(packageName, "mock-github");
+describe('GitHub mock data module', function() {
+	it('should add an "issues" module', function() {
+		expect( Modules.find({type: 'collection', name: 'Issues'}).count() ).to.equal(1);
+	});
+
+	it('should add a basic commit', function() {
+		expect( Events.find({type: 'commit', author: 'Damiaan'}).count() ).to.be.at.least(1);
+	});
 });

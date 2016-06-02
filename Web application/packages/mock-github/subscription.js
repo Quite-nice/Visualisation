@@ -1,2 +1,1 @@
-Meteor.subscribe('mock-github');
-
+Meteor.subscribe('mockGithub');

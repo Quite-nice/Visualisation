@@ -20,8 +20,7 @@ Package.onUse(function(api) {
 });
 
 Package.onTest(function(api) {
-	api.use('ecmascript');
-	api.use('tinytest');
 	api.use('mock-github');
-	api.mainModule('tests.js');
+	api.use(['practicalmeteor:chai', 'ecmascript', 'mongo']);
+	api.mainModule('tests.js', 'client');
 });

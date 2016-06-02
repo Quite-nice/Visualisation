@@ -1,0 +1,7 @@
+{
+  "name": "mock-github",
+  "private": true,
+  "scripts": {
+    "test": "meteor test-packages ./ --driver-package practicalmeteor:mocha"
+  }
+}
