@@ -5,3 +5,7 @@
 Meteor.publish('allEvents', () => {
 	return Events.find()
 })
+
+Meteor.publish('event', (id) => {
+	return Events.findOne({_id: id})
+})
