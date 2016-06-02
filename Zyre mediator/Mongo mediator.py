@@ -30,16 +30,16 @@ def rethinkdb_writer(ctx, pipe):
     poller.register(n.inbox, zmq.POLLIN)
 
     database_configuration = configuration['database']['mongoDB']
-    mongo_connection = MongoClient(database_configuration["host"], database_configuration["port"])
+    mongo_connection = MongoClient(database_configuration['host'], database_configuration['port'])
 
     meteor = mongo_connection['meteor']
 
     # Add this module to the database
     meteor['modules'].insert([{
-        "_id": str(n.uuid()),
-        "name": n.name(),
-        "type": configuration['zyreMediator']['type'],
-
+        '_id': str(n.uuid()),
+        'name': n.name(),
+        'type': configuration['zyreMediator']['type'],
+        'parent': None
     }])
 
     ready_message = {
@@ -85,15 +85,22 @@ def rethinkdb_writer(ctx, pipe):
                 try:
                     module_type = headers['type']
                 except KeyError:
-                    print("Your header doesn't contain your type of robot")
+                    print("Your header doesn't contain your type of module")
                     module_type = 'unknown'
+
+                try:
+                    parent_module_id = headers['parent']
+                except KeyError:
+                    print("The header doesn't contain the module's parent id")
+                    parent_module_id = None
 
                 # creates an entry with all known information about the robot
                 # in the database if the robot is not in the database
                 meteor['modules'].insert_one({
                     '_id': str(peer_uid),
                     'name': peer_name,
-                    'type': module_type
+                    'type': module_type,
+                    'parent': parent_module_id
                 })
 
                 module_name_to_uid_map[peer_name] = str(peer_uid)
