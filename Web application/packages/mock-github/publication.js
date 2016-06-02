@@ -7,6 +7,7 @@ import {branches, branchesId, issuesId, issues} from './modules'
 import {events} from './events'
 
 Meteor.publish('mockGithub', function() {
+	console.log('publishing');
 	this.added('modules', branchesId, branches);
 	this.added('modules', issuesId, issues);
 
