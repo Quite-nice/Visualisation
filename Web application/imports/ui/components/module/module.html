@@ -4,5 +4,10 @@
         -> should be called like this: {{> GenericModule data}}
 -->
 <template name="GenericModule">
-
+    <h1>{{name}}</h1>
+    <li>
+        {{#each receivedEvents}}
+        <ul></ul>
+        {{/each}}
+    </li>
 </template>
