@@ -1,5 +1,4 @@
 allow-deny@1.0.4
-autopublish@1.0.7
 autoupdate@1.2.9
 babel-compiler@6.6.4
 babel-runtime@0.1.8
@@ -32,6 +31,8 @@ http@1.1.5
 id-map@1.0.7
 insecure@1.0.7
 jquery@1.11.8
+kadira:blaze-layout@2.3.0
+kadira:flow-router@2.12.1
 launch-screen@1.0.11
 livedata@1.0.18
 logging@1.0.12
@@ -42,6 +43,7 @@ minifier-js@1.1.11
 minimongo@1.0.16
 mobile-experience@1.0.4
 mobile-status-bar@1.0.12
+mock-github@0.0.1
 modules@0.6.1
 modules-runtime@0.6.3
 mongo@1.1.7
@@ -51,10 +53,13 @@ observe-sequence@1.0.11
 ordered-dict@1.0.7
 promise@0.6.7
 random@1.0.9
+reactive-dict@1.1.7
 reactive-var@1.0.9
 reload@1.1.8
 retry@1.0.7
 routepolicy@1.0.10
+semantic:ui@2.1.8
+semantic:ui-data@2.1.8
 spacebars@1.0.11
 spacebars-compiler@1.0.11
 standard-minifier-css@1.0.6

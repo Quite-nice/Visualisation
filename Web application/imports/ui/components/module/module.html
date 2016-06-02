@@ -5,9 +5,14 @@
 -->
 <template name="GenericModule">
     <h1>{{name}}</h1>
-    <li>
+    <ul>
         {{#each receivedEvents}}
-        <ul></ul>
+        <li>
+            {{author}}
+            {{message}}
+            {{date}}
+
+        </li>
         {{/each}}
-    </li>
+    </ul>
 </template>
