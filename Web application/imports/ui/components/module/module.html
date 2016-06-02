@@ -1,0 +1,18 @@
+<!--
+    DISCLAIMER:
+        This template assumes a Module document in the datacontext
+        -> should be called like this: {{> GenericModule data}}
+-->
+<template name="GenericModule">
+    <h1>{{name}}</h1>
+    <ul>
+        {{#each receivedEvents}}
+        <li>
+            {{author}}
+            {{message}}
+            {{date}}
+
+        </li>
+        {{/each}}
+    </ul>
+</template>
