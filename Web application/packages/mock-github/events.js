@@ -1,4 +1,4 @@
-import {branchesId} from 'modules'
+import {branchesId} from './modules'
 
 export const events = [
 	{

@@ -3,8 +3,8 @@
 // Variables exported by this module can be imported by other packages and
 // applications. See tests.js for an example of importing.
 
-import {branches, branchesId, issuesId, issues} from 'modules'
-import {events} from 'events'
+import {branches, branchesId, issuesId, issues} from './modules'
+import {events} from './events'
 
 Meteor.publish('mock-github', function() {
 	this.added('modules', branchesId, branches);
