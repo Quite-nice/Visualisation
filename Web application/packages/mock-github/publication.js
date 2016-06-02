@@ -13,4 +13,6 @@ Meteor.publish('mockGithub', function() {
 	for (let event of events) {
 		this.added('events', new Mongo.ObjectID(), event);
 	}
+
+	this.ready()
 });
