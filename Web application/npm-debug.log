@@ -1,0 +1,29 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node',
+1 verbose cli   '/Users/Jeroen/.meteor/packages/meteor-tool/.1.3.2_4.1y5m9zv++os.osx.x86_64+web.browser+web.cordova/mt-os.osx.x86_64/dev_bundle/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   '--save',
+1 verbose cli   'semantic-ui' ]
+2 info using npm@2.14.22
+3 info using node@v0.10.43
+4 verbose install initial load of /Users/Jeroen/Projecten/Visualisation/Visualisation/Web application/package.json
+5 verbose stack Error: Invalid name: "Web application"
+5 verbose stack     at ensureValidName (/Users/Jeroen/.meteor/packages/meteor-tool/.1.3.2_4.1y5m9zv++os.osx.x86_64+web.browser+web.cordova/mt-os.osx.x86_64/dev_bundle/lib/node_modules/npm/node_modules/read-package-json/node_modules/normalize-package-data/lib/fixer.js:315:15)
+5 verbose stack     at Object.module.exports.fixNameField (/Users/Jeroen/.meteor/packages/meteor-tool/.1.3.2_4.1y5m9zv++os.osx.x86_64+web.browser+web.cordova/mt-os.osx.x86_64/dev_bundle/lib/node_modules/npm/node_modules/read-package-json/node_modules/normalize-package-data/lib/fixer.js:204:5)
+5 verbose stack     at /Users/Jeroen/.meteor/packages/meteor-tool/.1.3.2_4.1y5m9zv++os.osx.x86_64+web.browser+web.cordova/mt-os.osx.x86_64/dev_bundle/lib/node_modules/npm/node_modules/read-package-json/node_modules/normalize-package-data/lib/normalize.js:30:38
+5 verbose stack     at Array.forEach (native)
+5 verbose stack     at normalize (/Users/Jeroen/.meteor/packages/meteor-tool/.1.3.2_4.1y5m9zv++os.osx.x86_64+web.browser+web.cordova/mt-os.osx.x86_64/dev_bundle/lib/node_modules/npm/node_modules/read-package-json/node_modules/normalize-package-data/lib/normalize.js:29:15)
+5 verbose stack     at final (/Users/Jeroen/.meteor/packages/meteor-tool/.1.3.2_4.1y5m9zv++os.osx.x86_64+web.browser+web.cordova/mt-os.osx.x86_64/dev_bundle/lib/node_modules/npm/node_modules/read-package-json/read-json.js:338:5)
+5 verbose stack     at then (/Users/Jeroen/.meteor/packages/meteor-tool/.1.3.2_4.1y5m9zv++os.osx.x86_64+web.browser+web.cordova/mt-os.osx.x86_64/dev_bundle/lib/node_modules/npm/node_modules/read-package-json/read-json.js:113:5)
+5 verbose stack     at /Users/Jeroen/.meteor/packages/meteor-tool/.1.3.2_4.1y5m9zv++os.osx.x86_64+web.browser+web.cordova/mt-os.osx.x86_64/dev_bundle/lib/node_modules/npm/node_modules/read-package-json/read-json.js:284:20
+5 verbose stack     at /Users/Jeroen/.meteor/packages/meteor-tool/.1.3.2_4.1y5m9zv++os.osx.x86_64+web.browser+web.cordova/mt-os.osx.x86_64/dev_bundle/lib/node_modules/npm/node_modules/graceful-fs/graceful-fs.js:78:16
+5 verbose stack     at fs.js:208:20
+6 verbose cwd /Users/Jeroen/Projecten/Visualisation/Visualisation/Web application
+7 error Darwin 15.4.0
+8 error argv "node" "/Users/Jeroen/.meteor/packages/meteor-tool/.1.3.2_4.1y5m9zv++os.osx.x86_64+web.browser+web.cordova/mt-os.osx.x86_64/dev_bundle/bin/npm" "install" "--save" "semantic-ui"
+9 error node v0.10.43
+10 error npm  v2.14.22
+11 error Invalid name: "Web application"
+12 error If you need help, you may report this error at:
+12 error     <https://github.com/npm/npm/issues>
+13 verbose exit [ 1, true ]
