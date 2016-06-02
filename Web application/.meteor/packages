@@ -22,3 +22,4 @@ kadira:flow-router
 kadira:blaze-layout
 mock-github
 semantic:ui
+twbs:bootstrap
