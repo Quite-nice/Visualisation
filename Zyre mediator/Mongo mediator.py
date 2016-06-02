@@ -44,7 +44,7 @@ def rethinkdb_writer(ctx, pipe):
 
     ready_message = {
         'type': 'state',
-        'sender_UUID': str(n.uuid()),
+        'senderId': str(n.uuid()),
         'payload': 2
     }
 
@@ -119,7 +119,7 @@ def rethinkdb_writer(ctx, pipe):
 
                 # print data
 
-                data['sender_UUID'] = str(peer_uid)
+                data['senderId'] = str(peer_uid)
                 logMessage(data)
 
             elif msg_type.decode('utf-8') == 'WHISPER':
