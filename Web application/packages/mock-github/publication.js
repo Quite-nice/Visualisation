@@ -1,12 +1,12 @@
 // Write your package code here!
 
 // Variables exported by this module can be imported by other packages and
-// applications. See githubMock-tests.js for an example of importing.
+// applications. See tests.js for an example of importing.
 
 import {branches, branchesId, issuesId, issues} from 'modules'
 import {events} from 'events'
 
-Meteor.publish('githubMock', function() {
+Meteor.publish('mock-github', function() {
 	this.added('modules', branchesId, branches);
 	this.added('modules', issuesId, issues);
 

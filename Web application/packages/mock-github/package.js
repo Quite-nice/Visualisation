@@ -1,5 +1,5 @@
 Package.describe({
-	name: 'githubMock',
+	name: 'mock-github',
 	version: '0.0.1',
 	// Brief, one-line summary of the package.
 	summary: '',
@@ -22,6 +22,6 @@ Package.onUse(function(api) {
 Package.onTest(function(api) {
 	api.use('ecmascript');
 	api.use('tinytest');
-	api.use('githubMock');
-	api.mainModule('githubMock-tests.js');
+	api.use('mock-github');
+	api.mainModule('tests.js');
 });
