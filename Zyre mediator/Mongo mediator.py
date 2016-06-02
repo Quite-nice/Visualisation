@@ -123,7 +123,7 @@ def rethinkdb_writer(ctx, pipe):
 
                 logMessage(data)
 
-    meteor("modules").filter({"uuid": str(n.uuid())}).delete().run(mongo_connection)
+    meteor["modules"].remove({"_id": str(n.uuid())})
     n.stop()
 
 
