@@ -9,6 +9,8 @@ This is a file containing both requested and provided publications. The publicat
 * [ ] `eventsWithinTimeSpan(dateFrom, dateTo)`: *returns all events between `dateFrom` & `dateTo`*
 
 ##Modules
+**BEWARE!** you have to merge the Types collection with the Modules collection before publishing
+
 * [ ] `allModules()`: *returns all modules, period*
 * [ ] `module(_id)`: *returns event, given the `_id`*
 * [ ] `subModulesFromModule(_id)`: *returns the submodules of a module, given the `_id`*

@@ -3,4 +3,4 @@
  */
 
 // definition of the Events collection
-export const Events = Mongo.Collection('events')
+export const Events = new Mongo.Collection('events')
