@@ -17,3 +17,12 @@ Meteor.publish('eventsReceivedByModule', (id) => {
 Meteor.publish('eventsSentByModule', (id) => {
 	return Events.find({senderId: id})
 })
+
+Meteor.publish('eventsWithinTimeSpan', (dateFrom, dateTo) => {
+	return Events.find({
+		timestamp: {
+			$gte: dateFrom,
+			$lt: dateTo
+		}
+	}, {sort: {timestamp: -1}})
+})
