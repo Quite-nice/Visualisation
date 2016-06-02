@@ -4,6 +4,7 @@
 import './module.html'
 
 import {Events} from '/imports/api/events/events'
+import {GenericEvent} from '/imports/ui/components/event/event'
 import 'meteor/mock-github'
 
 Template.GenericModule.onCreated(function (){

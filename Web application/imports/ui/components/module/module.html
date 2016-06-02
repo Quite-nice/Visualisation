@@ -6,13 +6,8 @@
 <template name="GenericModule">
     <h1>{{name}}</h1>
     <ul>
-        {{#each receivedEvents}}
-        <li>
-            {{author}}
-            {{message}}
-            {{date}}
-
-        </li>
+        {{#each event in receivedEvents}}
+            <li>{{> GenericEvent event}}</li>
         {{/each}}
     </ul>
 </template>
