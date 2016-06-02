@@ -4,6 +4,7 @@ This is a file containing both requested and provided publications. The publicat
 ##Events
 * [ ] `allEvents()`: *returns all events, period*
 * [ ] `event(_id)`: *returns event, given the `_id`*
+* [ ] `eventsReceivedByModule(_id)`: *returns events received by a certain module, given its `_id`*
 * [ ] `eventsSentByModule(_id)`: *returns all events sent by a certain module, given its `_id`*
 * [ ] `eventsWithinTimeSpan(dateFrom, dateTo)`: *returns all events between `dateFrom` & `dateTo`*
 
