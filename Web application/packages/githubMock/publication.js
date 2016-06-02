@@ -4,6 +4,7 @@
 // applications. See githubMock-tests.js for an example of importing.
 
 import {branches, branchesId, issuesId, issues} from 'modules'
+import {events} from 'events'
 
 Meteor.publish('githubMock', function() {
 	this.added('modules', branchesId, branches);
@@ -13,25 +14,3 @@ Meteor.publish('githubMock', function() {
 		this.added('events', new Mongo.ObjectID(), event);
 	}
 });
-
-const events = [
-	{
-		hash: 'ab65',
-		author: 'Damiaan',
-		message: 'init',
-		date: new Date(),
-		senderId: branchesId
-	}, {
-		hash: 'ab69',
-		author: 'Jeroen',
-		message: 'add spul',
-		date: new Date(),
-		senderId: branchesId
-	}, {
-		hash: 'ab35',
-		author: 'Kymer',
-		message: 'add ding',
-		date: new Date(),
-		senderId: branchesId
-	}
-];
