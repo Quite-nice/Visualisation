@@ -13,3 +13,7 @@ Meteor.publish('event', (id) => {
 Meteor.publish('eventsReceivedByModule', (id) => {
 	return Events.find({receiverId: id})
 })
+
+Meteor.publish('eventsSentByModule', (id) => {
+	return Events.find({senderId: id})
+})
