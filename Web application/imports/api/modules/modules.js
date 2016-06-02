@@ -3,4 +3,4 @@
  */
 
 // definition of the Modules collection
-export const Modules = Mongo.Collection('modules')
+export const Modules = new Mongo.Collection('modules')
