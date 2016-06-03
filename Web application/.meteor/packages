@@ -21,6 +21,5 @@ insecure                # Allow all DB writes from clients (for prototyping)
 kadira:flow-router
 kadira:blaze-layout
 mock-github
-semantic:ui
 twbs:bootstrap
 practicalmeteor:mocha

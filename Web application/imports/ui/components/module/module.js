@@ -17,6 +17,7 @@ Template.GenericModule.helpers({
 		// best to filter on the sender, this way, shouts don't get excluded
 		//Events.find({sender: {$ne: this._id}})
 		return Events.find()
+
 	}
 })
 
