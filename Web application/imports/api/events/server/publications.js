@@ -1,6 +1,7 @@
 /**
  * Created by Kymer on 1/06/16.
  */
+import { Meteor } from 'meteor/meteor'
 
 Meteor.publish('allEvents', () => {
 	return Events.find()
