@@ -3,27 +3,30 @@ import {branchesId} from './modules'
 export const events = [
 	{
 		senderId: branchesId,
+		date: new Date(),
 		type: 'commit',
-
-		hash: 'ab65',
-		author: 'Damiaan',
-		message: 'init',
-		date: new Date()
+		payload: {
+			hash: 'ab65',
+			author: 'Damiaan',
+			message: 'init'
+		}
 	}, {
 		senderId: branchesId,
+		date: new Date(),
 		type: 'commit',
-
-		hash: 'ab69',
-		author: 'Jeroen',
-		message: 'add spul',
-		date: new Date()
+		payload: {
+			hash: 'ab69',
+			author: 'Jeroen',
+			message: 'add spul'
+		}
 	}, {
 		senderId: branchesId,
+		date: new Date(),
 		type: 'commit',
-
-		hash: 'ab35',
-		author: 'Kymer',
-		message: 'add ding',
-		date: new Date()
+		payload: {
+			hash: 'ab35',
+			author: 'Kymer',
+			message: 'add ding'
+		}
 	}
 ];
