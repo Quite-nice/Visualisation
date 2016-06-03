@@ -2,4 +2,4 @@
  * Created by Jeroen on 02/06/16.
  */
 
-export const Types = Mongo.Collection('types')
+export const Types = new Mongo.Collection('types')

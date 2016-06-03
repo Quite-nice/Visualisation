@@ -2,11 +2,11 @@
 This is a file containing both requested and provided publications. The publications are based upon 2 entities: Modules & Events.
 
 ##Events
-* [ ] `allEvents()`: *returns all events, period*
-* [ ] `event(_id)`: *returns event, given the `_id`*
-* [ ] `eventsReceivedByModule(_id)`: *returns events received by a certain module, given its `_id`*
-* [ ] `eventsSentByModule(_id)`: *returns all events sent by a certain module, given its `_id`*
-* [ ] `eventsWithinTimeSpan(dateFrom, dateTo)`: *returns all events between `dateFrom` & `dateTo`*
+* [x] `allEvents()`: *returns all events, period*
+* [x] `event(_id)`: *returns event, given the `_id`*
+* [x] `eventsReceivedByModule(_id)`: *returns events received by a certain module, given its `_id`*
+* [x] `eventsSentByModule(_id)`: *returns all events sent by a certain module, given its `_id`*
+* [x] `eventsWithinTimeSpan(dateFrom, dateTo)`: *returns all events between `dateFrom` & `dateTo`*
 
 ##Modules
 **BEWARE!** you have to merge the Types collection with the Modules collection before publishing
