@@ -15,9 +15,11 @@ Template.GenericModule.onCreated(function (){
 Template.GenericModule.helpers({
 	receivedEvents(){
 		// best to filter on the sender, this way, shouts don't get excluded
-		//Events.find({sender: {$ne: this._id}})
-		return Events.find({},{limit:10, sort: {date: -1}})
+		return Events.find({sender: {$ne: this._id}},{limit:10, sort: {date: -1}})
+	},
 
+	sentEvents(){
+		return Events.find({sender: this._id}, {limit:10, sort: {date: -1}})
 	}
 })
 
