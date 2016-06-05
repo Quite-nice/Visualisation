@@ -21,3 +21,4 @@ insecure                # Allow all DB writes from clients (for prototyping)
 mock-github
 practicalmeteor:mocha
 xolvio:cleaner
+johanbrook:publication-collector
