@@ -12,7 +12,7 @@ Meteor.publish('allModules', function() {
 	return Modules.find()
 })
 
-Meteor.publishComposite('allModulesWithType', {
+Meteor.publishComposite('allModulesPlusType', {
 	find: function () {
 		return Modules.find()
 	},
@@ -29,7 +29,7 @@ Meteor.publish('module', function(id) {
 	return Modules.find({_id: id})
 })
 
-Meteor.publishComposite('moduleWithType', function(id) {
+Meteor.publishComposite('modulePlusType', function(id) {
 	return {
 		find: function () {
 			return Modules.find({_id: id})
