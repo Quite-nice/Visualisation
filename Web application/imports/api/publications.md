@@ -12,6 +12,6 @@ This is a file containing both requested and provided publications. The publicat
 **BEWARE!** you have to merge the Types collection with the Modules collection before publishing
 
 * [x] `allModules() + allModulesWithType() `: *returns all modules, period*
-* [ ] `module(_id)`: *returns event, given the `_id`*
+* [x] `module(_id) + moduleWithType(_id)`: *returns event, given the `_id`*
 * [ ] `subModulesFromModule(_id)`: *returns the submodules of a module, given the `_id`*
 * [ ] `modulesFromLocation(lat, long, radiusInMeter)`: *returns all modules, positioned within the radius of the given `lat` & `long`*

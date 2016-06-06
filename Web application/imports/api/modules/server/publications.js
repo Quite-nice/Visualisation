@@ -24,3 +24,22 @@ Meteor.publishComposite('allModulesWithType', {
 		}
 	}]
 })
+
+Meteor.publish('module', function(id) {
+	return Modules.find({_id: id})
+})
+
+Meteor.publishComposite('moduleWithType', function(id) {
+	return {
+		find: function () {
+			return Modules.find({_id: id})
+		},
+		children : [{
+			find: function (module) {
+				// this needs to be a find() and not findOne() as required
+				// by the publish-composite package
+				return Types.find({_id: module.typeId})
+			}
+		}]
+	}
+})
