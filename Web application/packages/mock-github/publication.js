@@ -11,9 +11,11 @@ Meteor.publish('mockGithub', function() {
 	this.added('modules', issuesId, issues);
 	this.added('modules', pullRequestsId, pullRequests)
 
-	for (let event of events) {
-		this.added('events', new Mongo.ObjectID(), event);
-	}
+	Meteor.setInterval(()=>{
+		for (let event of events) {
+			this.added('events', new Mongo.ObjectID(), event);
+		}
+	}, 3000)
 
 	this.ready()
 });
