@@ -4,18 +4,22 @@
 import './module.html'
 
 import {Events} from '/imports/api/events/events'
-import 'meteor/mock-github'
+import {GenericEvent} from '/imports/ui/components/event/event'
+//import 'meteor/mock-github'
 
 Template.GenericModule.onCreated(function (){
-	//Meteor.subscribe('eventsReceivedByModule', this._id)
-	Meteor.subscribe('mock-github')
+	Meteor.subscribe('eventsReceivedByModule', this._id)
+	//Meteor.subscribe('mock-github')
 })
 
 Template.GenericModule.helpers({
 	receivedEvents(){
 		// best to filter on the sender, this way, shouts don't get excluded
-		//Events.find({sender: {$ne: this._id}})
-		return Events.find()
+		return Events.find({sender: {$ne: this._id}},{limit:10, sort: {date: -1}})
+	},
+
+	sentEvents(){
+		return Events.find({sender: this._id}, {limit:10, sort: {date: -1}})
 	}
 })
 

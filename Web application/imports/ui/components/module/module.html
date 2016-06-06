@@ -4,15 +4,34 @@
         -> should be called like this: {{> GenericModule data}}
 -->
 <template name="GenericModule">
-    <h1>{{name}}</h1>
-    <ul>
-        {{#each receivedEvents}}
-        <li>
-            {{author}}
-            {{message}}
-            {{date}}
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">{{name}}</h3>
+        </div>
 
-        </li>
-        {{/each}}
-    </ul>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <h6>Received events</h6>
+                    <ul class="list-group">
+                        {{#each event in receivedEvents}}
+                            <li class="list-group-item">{{> GenericEvent event}}</li>
+                        {{/each}}
+                    </ul>
+                </div>
+
+                <div class="col-md-6">
+                    <h6>Sent events</h6>
+                    <ul class="list-group">
+                        {{#each event in sentEvents}}
+                            <li class="list-group-item">{{> GenericEvent event}}</li>
+                        {{/each}}
+                    </ul>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
 </template>

@@ -1,4 +1,10 @@
 <template name="overview">
-    <h1>visualizer</h1>
-    {{> Template.dynamic template=content}}
+    <div class="row">
+        <div class="col-xs-3">
+            {{> modulesGeneralInfo}}
+        </div>
+        <div class="col-xs-9">
+            {{> allModules}}
+        </div>
+    </div>
 </template>

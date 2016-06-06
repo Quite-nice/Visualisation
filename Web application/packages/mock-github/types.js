@@ -1,20 +1,31 @@
 /**
- * Created by Kymer on 6/06/16.
+ * Created by Jeroen on 03/06/16.
  */
-export const typeId1 = new Mongo.ObjectID()
-export const type1 = {
-	name: 'Type one',
-	color: '#003761'
-};
 
-export const typeId2 = new Mongo.ObjectID()
-export const type2 = {
-	name: 'Type two',
-	color: '#F47923'
-};
+export const branchTypeId = new Mongo.ObjectID()
+export const branchType = {
+    name: 'Branch',
+    color: '#c0c0c0',
+    discription: 'github branch'
+}
 
-export const typeId3 = new Mongo.ObjectID()
-export const type3 = {
-	name: 'Type three',
-	color: '#65C178'
-};
+export const contributorTypeId = new Mongo.ObjectID()
+export const contributorType = {
+    name: 'contributor',
+    color: '#f0f0f0',
+    discription: 'github contributor'
+}
+
+export const issueTypeId = new Mongo.ObjectID()
+export const issueType = {
+    name: 'Issue',
+    color: '#020202',
+    discription: 'github issue'
+}
+
+export const pullRequestTypeId = new Mongo.ObjectID()
+export const pullRequestType = {
+    name: 'Pull Request',
+    color: '#034034',
+    discription: 'github pull request'
+}

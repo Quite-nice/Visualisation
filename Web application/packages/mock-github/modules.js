@@ -1,22 +1,22 @@
-import {typeId1, type1, typeId2, type2, typeId3, type3} from './types'
+import {branchTypeId, contributorTypeId, issueTypeId, pullRequestTypeId} from './types'
 
 export const branchesId = new Mongo.ObjectID()
 export const branches = {
-	type: typeId1,
+	type: branchTypeId,
 	name: 'Branches',
-	parent: null
+	parentId: null
 };
 
 export const issuesId = new Mongo.ObjectID()
 export const issues = {
-	type: typeId2,
+	type: issueTypeId,
 	name: 'Issues',
-	parent: null
+	parentId: null
 };
 
 export const pullRequestsId = new Mongo.ObjectID()
 export const pullRequests = {
-	type: typeId3,
+	type: pullRequestTypeId,
 	name: 'Pull requests',
-	parent: null
+	parentId: null
 };

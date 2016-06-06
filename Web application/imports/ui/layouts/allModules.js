@@ -5,9 +5,10 @@ import '/imports/ui/layouts/allModules.html'
 import {GenericModule} from '/imports/ui/components/module/module'
 
 import {Modules} from '/imports/api/modules/modules'
-import 'meteor/mock-github'
 
-Module = Modules
+Template.allModules.onCreated(function (){
+
+})
 
 Template.allModules.helpers({
     getAllModules(){
