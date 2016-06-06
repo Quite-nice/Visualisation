@@ -2,6 +2,7 @@
  * Created by Kymer on 1/06/16.
  */
 import { Meteor } from 'meteor/meteor'
+import { Events } from '/imports/api/events/events'
 
 Meteor.publish('allEvents', () => {
 	return Events.find()

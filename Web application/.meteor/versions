@@ -31,6 +31,7 @@ htmljs@1.0.9
 http@1.1.5
 id-map@1.0.7
 insecure@1.0.7
+johanbrook:publication-collector@1.0.0
 jquery@1.11.8
 kadira:blaze-layout@2.3.0
 kadira:flow-router@2.12.1
@@ -63,7 +64,10 @@ reactive-dict@1.1.7
 reactive-var@1.0.9
 reload@1.1.8
 retry@1.0.7
+reywood:publish-composite@1.4.2
 routepolicy@1.0.10
+semantic:ui@2.1.8
+semantic:ui-data@2.1.8
 spacebars@1.0.11
 spacebars-compiler@1.0.11
 standard-minifier-css@1.0.6
@@ -78,3 +82,4 @@ underscore@1.0.8
 url@1.0.9
 webapp@1.2.8
 webapp-hashing@1.0.9
+xolvio:cleaner@0.3.1
