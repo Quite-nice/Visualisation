@@ -12,6 +12,7 @@ This is a draft. If you have suggestions on how to improve the schema, please ad
 
 
 - `typeId`: the `_id` of its type
+- `loc: { type: 'Point', coordinates: [long, lat] }`: location data in GeoJSON format
 
 ### Events
 
