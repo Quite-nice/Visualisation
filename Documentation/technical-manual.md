@@ -11,7 +11,7 @@ This is a draft. If you have suggestions on how to improve the schema, please ad
 - `name`: string
 
 
-- `type`: string
+- `typeId`: the `_id` of its type
 
 ### Events
 
