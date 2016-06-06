@@ -14,4 +14,4 @@ This is a file containing both requested and provided publications. The publicat
 * [x] `allModules() + allModulesPlusType() `: *returns all modules, period*
 * [x] `module(_id) + modulePlusType(_id)`: *returns event, given the `_id`*
 * [x] `subModulesFromModule(_id) + subModulesFromModulePlusType(_id)`: *returns the submodules of a module, given the `_id`*
-* [ ] `modulesFromLocation(lat, long, radiusInMeter)`: *returns all modules, positioned within the radius of the given `lat` & `long`*
+* [x] `modulesFromLocation(lat, long, radiusInMeter)`: *returns all modules, positioned within the radius of the given `lat` & `long`*, sorted by distance

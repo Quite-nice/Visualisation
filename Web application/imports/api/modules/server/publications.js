@@ -64,3 +64,31 @@ Meteor.publishComposite('subModulesFromModulePlusType', function(id) {
 		}]
 	}
 })
+
+
+Meteor.publish('modulesFromLocation', function(lat, long, radiusInMeter) {
+	return Modules.find({
+		$near: {
+			$geometry: {type: 'Point', coordinates: [long, lat]}
+		},  $maxDistance: radiusInMeter
+	})
+})
+
+Meteor.publishComposite('modulesFromLocationPlusType', function(lat, long, radiusInMeter) {
+	return {
+		find: function () {
+			return Modules.find({
+				$near: {
+					$geometry: {type: 'Point', coordinates: [long, lat]}
+				},  $maxDistance: radiusInMeter
+			})
+		},
+		children : [{
+			find: function (module) {
+				// this needs to be a find() and not findOne() as required
+				// by the publish-composite package
+				return Types.find({_id: module.typeId})
+			}
+		}]
+	}
+})
