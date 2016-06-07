@@ -4,9 +4,10 @@
 
 import './menu.html'
 
+
 Template.menu.events({
     'click .route': function(event){
-        event.stopPropagination()
+        event.stopPropagation()
         this.visit()
     }
 })

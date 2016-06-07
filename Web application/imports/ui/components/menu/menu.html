@@ -1,3 +1,11 @@
 <template name="menu">
-    
+    <ul>
+        {{#eachMenu items}}
+            <li>{{title}}</li>
+        {{else}}
+            <li class="route">
+                {{title}}
+            </li>
+        {{/eachMenu}}
+    </ul>
 </template>

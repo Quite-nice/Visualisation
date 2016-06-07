@@ -6,4 +6,8 @@ import './layout.html'
 import {menu} from '/imports/ui/components/menu/menu'
 import {navigation} from '/imports/startup/client/routes'
 
-Template.layout.helpers({navigation})
+Template.layout.helpers({
+    navigation(){
+        return navigation
+    }
+})
