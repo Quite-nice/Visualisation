@@ -5,16 +5,18 @@
 //PACKAGES
 import {FlowRouter} from 'meteor/kadira:flow-router'
 import {BlazeLayout} from 'meteor/kadira:blaze-layout'
+import {Menu} from 'meteor/devian:navigation'
 
 //TEMPLATES
-import '/imports/ui/pages/navigation'
+import '/imports/ui/pages/layout'
 import '/imports/ui/pages/overview'
 
 // set up all routes in the app
+export const navigation = new Menu()
 
-FlowRouter.route('/', {
-    name: 'home',
+navigation.route('/', {
+    name: 'Overview',
     action: function(){
-        BlazeLayout.render('navigation', {content: 'overview'})
+        BlazeLayout.render('layout', {content: 'overview'})
     }
 })
