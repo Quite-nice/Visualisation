@@ -21,5 +21,9 @@ insecure                # Allow all DB writes from clients (for prototyping)
 kadira:flow-router
 kadira:blaze-layout
 mock-github
-twbs:bootstrap
 practicalmeteor:mocha
+xolvio:cleaner
+johanbrook:publication-collector
+reywood:publish-composite
+semantic:ui
+twbs:bootstrap
