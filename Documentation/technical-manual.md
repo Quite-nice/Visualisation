@@ -11,7 +11,15 @@ This is a draft. If you have suggestions on how to improve the schema, please ad
 - `name`: string
 
 
-- `type`: string
+- `typeId`: the `_id` of its type
+- `loc: { type: 'Point', coordinates: [long, lat] }`: location data in GeoJSON format
+
+### Types
+
+* `_id`: unique string
+* `name`: string
+* `description`: string, a small user-facing description of the type
+* `color`: string, hexadecimal representation of a color (e.g. *"#65C178"*)
 
 ### Events
 
