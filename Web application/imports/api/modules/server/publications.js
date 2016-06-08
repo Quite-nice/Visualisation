@@ -1,9 +1,9 @@
 /**
  * Created by Kymer on 1/06/16.
  */
-import { Meteor } from 'meteor/meteor'
-import { Modules } from '/imports/api/modules/modules'
-import { Types } from '/imports/api/types/types'
+import {Meteor} from 'meteor/meteor'
+import {Modules} from '/imports/api/modules/modules'
+import {Types} from '/imports/api/types/types'
 
 // all modules-related publications
 // publications are available with and without type information
