@@ -20,3 +20,10 @@ navigation.route('/', {
         BlazeLayout.render('layout', {content: 'overview'})
     }
 })
+
+navigation.route('/geo', {
+    name: 'Geo',
+    action: function(){
+        BlazeLayout.render('layout', {content: 'overview'})
+    }
+})

@@ -1,11 +1,9 @@
 <template name="menu">
-    <ul>
+    <ul class="nav nav-pills">
         {{#eachMenu items}}
-            <li>{{title}}</li>
+            <li role="presentation" class="{{#if isActive}}active{{/if}}"><a class="route">{{title}}</a></li>
         {{else}}
-            <li class="route">
-                {{title}}
-            </li>
+            <li role="presentation" class="{{#if isActive}}active{{/if}}"><a class="route">{{title}}</a></li>
         {{/eachMenu}}
     </ul>
 </template>
