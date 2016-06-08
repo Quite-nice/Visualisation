@@ -4,16 +4,15 @@
 import { Events } from '../events'
 import { assert } from 'meteor/practicalmeteor:chai'
 import { resetDatabase } from 'meteor/xolvio:cleaner'
+import faker from 'faker'
 
 // tests for the events publications
 
-describe('Publications', function () {
+describe('Events publications', function () {
 	beforeEach(function () {
 		resetDatabase()
 	});
-});
 
-describe('Events', () => {
 	describe('allEvents', () => {
 		it('should return all events', () => {
 			assert.equal(42, 42)
