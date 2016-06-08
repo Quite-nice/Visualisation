@@ -3,15 +3,15 @@
  */
 import {Events} from '/imports/api/events/events'
 import {Factory} from 'meteor/dburles:factory'
-import Faker from 'Faker'
+import faker from 'faker'
 
 Factory.define('event', Events, {
 	senderId: () => Factory.get('branchesModule'),
 	date: () => new Date(),
 	type: 'commit',
 	payload: {
-		hash: () => Faker.random.alphaNumeric(),
-		author: () => Faker.name.findName(),
-		message: () => Faker.hacker.phrase()
+		hash: () => faker.random.alphaNumeric(),
+		author: () => faker.name.findName(),
+		message: () => faker.hacker.phrase()
 	}
 })
