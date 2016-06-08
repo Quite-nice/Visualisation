@@ -10,7 +10,7 @@ Factory.define('event', Events, {
 	date: () => new Date(),
 	type: 'commit',
 	payload: {
-		hash: () => faker.random.alphaNumeric(),
+		hash: () => faker.random.uuid(),
 		author: () => faker.name.findName(),
 		message: () => faker.hacker.phrase()
 	}
