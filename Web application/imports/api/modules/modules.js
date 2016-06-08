@@ -2,6 +2,7 @@
  * Created by Kymer on 1/06/16.
  */
 import {Meteor} from 'meteor/meteor'
+import {Mongo} from 'meteor/mongo'
 
 export const Modules = new Mongo.Collection('modules')
 
