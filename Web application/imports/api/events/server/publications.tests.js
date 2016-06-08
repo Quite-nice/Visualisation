@@ -6,6 +6,7 @@ import {Events} from '/imports/api/events/events'
 import {assert} from 'meteor/practicalmeteor:chai'
 import {resetDatabase} from 'meteor/xolvio:cleaner'
 import faker from 'faker'
+import {PublicationCollector} from 'meteor/johanbrook:publication-collector'
 
 // tests for the events publications
 
