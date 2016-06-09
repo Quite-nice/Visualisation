@@ -72,7 +72,6 @@ describe('Events publications', function () {
 				assert.equal(collections.events.length, 1)
 				assert.equal(collections.events[0]._id, eventId)
 				done()
-
 			})
 		})
 	})
