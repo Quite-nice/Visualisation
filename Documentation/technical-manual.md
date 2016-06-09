@@ -14,18 +14,26 @@ This is a draft. If you have suggestions on how to improve the schema, please ad
 - `typeId`: the `_id` of its type
 - `loc: { type: 'Point', coordinates: [long, lat] }`: location data in GeoJSON format
 
+### Types
+
+* `_id`: unique string
+* `name`: string
+* `description`: string, a small user-facing description of the type
+* `color`: string, hexadecimal representation of a color (e.g. *"#65C178"*)
+
 ### Events
 
 - `senderId`: a string that references the `id` property of the module that sent the event
+- `receiverId`: a string that references the `id` property of the module that received the event
 - `date`: JS Date object. This is the receive date.
 - `type`: a string. This can be anything except the reserved event types
 - `payload`: the actual event. This may be a JSON object but it can also be a BLOB, string, array or number.
 
 **Generic event types**
 
-There are some event types that every will module have, regardless of the application. We list them here and provide a visualisation in the GUI for them that you can reuse in every application.
+There are some event types that every module will have, regardless of the application. We list them here and provide a visualisation in the GUI, which you can reuse in every application.
 
-- `stateChange`: to indicate that the module's state changed. These events should have a number as payload:
+- `stateChange`: to indicate that the module's state has changed. These events should have a number as payload:
   - `0` if the module is offline
   - `1` if it is starting up
   - `2` if the module is online
