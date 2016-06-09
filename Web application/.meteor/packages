@@ -20,7 +20,6 @@ ecmascript              # Enable ECMAScript2015+ syntax in app code
 insecure                # Allow all DB writes from clients (for prototyping)
 kadira:flow-router
 kadira:blaze-layout
-mock-github
 practicalmeteor:mocha
 xolvio:cleaner
 johanbrook:publication-collector
@@ -28,3 +27,4 @@ reywood:publish-composite
 semantic:ui
 twbs:bootstrap
 devian:navigation
+database
