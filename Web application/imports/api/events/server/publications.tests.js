@@ -5,7 +5,7 @@ import {Meteor} from 'meteor/meteor'
 import {Events} from '/imports/api/events/events'
 import {assert} from 'meteor/practicalmeteor:chai'
 import {resetDatabase} from 'meteor/xolvio:cleaner'
-import faker from 'faker'
+import { Random } from 'meteor/random'
 import {PublicationCollector} from 'meteor/johanbrook:publication-collector'
 
 // tests for the events publications
@@ -16,7 +16,7 @@ describe('Events', function () {
 	});
 
 	describe('mutators', function () {
-		it('builds correctly from factory', function () {
+		it('builds correctly from factory', function (done) {
 
 			// this should create 1 event in the Events collection
 			const event = Factory.create('event')
@@ -31,18 +31,37 @@ describe('Events', function () {
 			assert.typeOf(event.payload.hash, 'string')
 			assert.typeOf(event.payload.author, 'string')
 			assert.typeOf(event.payload.message, 'string')
+
+			done()
 		})
 	})
 })
 
 describe('Events publications', function () {
-	beforeEach(function () {
+	require('/imports/api/events/server/publications.js')
+
+	// this id can be used in tests for certain publications
+	let eventId = Random.id()
+
+	before(() => {
 		resetDatabase()
-	});
+
+		// create 1 event with the ID we created earlier, so we can fetch it if needed
+		const event = Factory.create('event', {_id: eventId})
+
+		// create some more events to fill the Events collection
+		for (let i = 0; i < 4; ++i) {
+			const event = Factory.create('event')
+		}
+	})
 
 	describe('allEvents', () => {
-		it('should return all events', () => {
-			// todo: add package to test publications (e.g. johanbrook:publication-collector)
+		it('should return all events', (done) => {
+			const collector = new PublicationCollector()
+			collector.collect('allEvents', (collections) => {
+				assert.equal(collections.events.length, 5)
+				done()
+			})
 		});
 	});
 });
