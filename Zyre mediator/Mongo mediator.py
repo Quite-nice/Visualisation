@@ -20,6 +20,7 @@ def rethinkdb_writer(ctx, pipe):
     group_name = configuration['zyreMediator']['group']
 
     n = Pyre(configuration['zyreMediator']['name'])
+    n.set_interface('usb0')
     n.set_header('TYPE', configuration['zyreMediator']['type'])
     n.join(group_name)
     n.start()
@@ -74,9 +75,9 @@ def rethinkdb_writer(ctx, pipe):
             msg_type = msg_frame.pop(0)
             peer_uid = uuid.UUID(bytes=msg_frame.pop(0))
             peer_name = msg_frame.pop(0)
-            # print('NODE_MSG TYPE: %s' % msg_type)
-            # print('NODE_MSG PEER: %s' % str(peer_uid))
-            # print('NODE_MSG NAME: %s' % peer_name)
+            print('NODE_MSG TYPE: %s' % msg_type)
+            print('NODE_MSG PEER: %s' % str(peer_uid))
+            print('NODE_MSG NAME: %s' % peer_name)
 
             if msg_type.decode('utf-8') == 'ENTER':
 
@@ -106,7 +107,7 @@ def rethinkdb_writer(ctx, pipe):
                 module_name_to_uid_map[peer_name] = str(peer_uid)
 
             elif msg_type.decode('utf-8') == 'EXIT':
-                meteor['modules'].remove({'uuid': str(peer_uid)})
+                meteor['modules'].remove({'_id': str(peer_uid)})
 
             elif msg_type.decode('utf-8') == 'SHOUT':
 
