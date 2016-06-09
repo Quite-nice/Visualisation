@@ -24,6 +24,7 @@ This is a draft. If you have suggestions on how to improve the schema, please ad
 ### Events
 
 - `senderId`: a string that references the `id` property of the module that sent the event
+- `receiverId`: a string that references the `id` property of the module that received the event
 - `date`: JS Date object. This is the receive date.
 - `type`: a string. This can be anything except the reserved event types
 - `payload`: the actual event. This may be a JSON object but it can also be a BLOB, string, array or number.
