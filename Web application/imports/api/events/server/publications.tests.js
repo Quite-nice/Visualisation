@@ -64,4 +64,16 @@ describe('Events publications', function () {
 			})
 		});
 	});
+
+	describe('event', () => {
+		it('should return 1 event with given ID', (done) => {
+			const collector = new PublicationCollector()
+			collector.collect('event', eventId, (collections) => {
+				assert.equal(collections.events.length, 1)
+				assert.equal(collections.events[0]._id, eventId)
+				done()
+
+			})
+		})
+	})
 });
