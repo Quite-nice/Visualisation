@@ -24,5 +24,5 @@ Package.onTest(function(api) {
 });
 
 Npm.depends({
-	bonjour: "^3.5.0"
+	bonjour: "3.5.0"
 });
