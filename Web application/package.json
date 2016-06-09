@@ -1,10 +1,14 @@
 {
-  "name": "Web application",
+  "name": "visualisation",
   "private": true,
   "scripts": {
     "start": "meteor run"
   },
   "dependencies": {
-    "meteor-node-stubs": "~0.2.0"
+    "json-loader": "^0.5.4",
+    "mapbox-gl": "^0.19.1",
+    "meteor-node-stubs": "~0.2.0",
+    "transform-loader": "^0.2.3",
+    "webworkify-webpack": "^1.1.0"
   }
 }
