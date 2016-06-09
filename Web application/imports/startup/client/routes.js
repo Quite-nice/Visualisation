@@ -10,6 +10,7 @@ import {Menu} from 'meteor/devian:navigation'
 //TEMPLATES
 import '/imports/ui/pages/layout'
 import '/imports/ui/pages/overview'
+import '/imports/ui/components/location/map'
 
 // set up all routes in the app
 export const navigation = new Menu()
@@ -24,6 +25,6 @@ navigation.route('/', {
 navigation.route('/geo', {
     name: 'Geo',
     action: function(){
-        BlazeLayout.render('layout', {content: 'overview'})
+        BlazeLayout.render('layout', {content: 'map'})
     }
 })
