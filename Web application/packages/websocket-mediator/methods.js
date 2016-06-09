@@ -33,6 +33,7 @@ Meteor.methods({
 	},
 	registerWebsocketEvent(event) {
 		if (this.connection[moduleIds].indexOf(event.senderId) >= 0) {
+			event.date = new Date();
 			Events.insert(event)
 		}
 	}
