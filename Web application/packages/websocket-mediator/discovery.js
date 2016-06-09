@@ -1,3 +1,6 @@
+import {mediatorId} from './mediator'
+import {Events} from 'meteor/database'
+
 const os = require('os');
 const url = require('url');
 const bonjour = require('bonjour')();
@@ -12,3 +15,14 @@ export const webSocketService = bonjour.publish({
 		url: `ws://${os.hostname()}:${rootURL.port}${rootURL.pathname}websocket`
 	}
 });
+
+webSocketService.on('up', Meteor.bindEnvironment(function() {
+	Events.insert({
+		senderId: mediatorId,
+		type: 'stateChange',
+		payload: 2,
+		date: new Date()
+	})
+}));
+
+webSocketService.start();

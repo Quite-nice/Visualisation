@@ -13,7 +13,7 @@ Package.describe({
 Package.onUse(function(api) {
 	api.versionsFrom('1.3.2.4');
 	api.use(['ecmascript', 'mongo', 'database']);
-	api.mainModule('websocket-mediator.js', 'server');
+	api.mainModule('main.js', 'server');
 });
 
 Package.onTest(function(api) {
