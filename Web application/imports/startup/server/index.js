@@ -3,3 +3,6 @@
  */
 
 // import server startup through a single index entry point
+import '/imports/api/events/events.js'
+import '/imports/api/modules/modules.js'
+import '/imports/api/types/types.js'
