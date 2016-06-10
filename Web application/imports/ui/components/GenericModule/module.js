@@ -4,12 +4,10 @@
 import './module.html'
 
 import {Events} from '/imports/api/events/events'
-import {GenericEvent} from '/imports/ui/components/ExpandableEventsList/event'
-//import 'meteor/mock-github'
+import '/imports/ui/components/ExpandableEventsList/event'
 
 Template.GenericModule.onCreated(function (){
-	Meteor.subscribe('eventsReceivedByModule', this._id)
-	//Meteor.subscribe('mock-github')
+	Meteor.subscribe('eventsSentByModule', this.data._id)
 })
 
 Template.GenericModule.helpers({
@@ -17,4 +15,3 @@ Template.GenericModule.helpers({
 		return Events.find({senderId: this._id}, {sort: {date: -1}})
 	}
 })
-

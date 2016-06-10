@@ -8,8 +8,15 @@ import '/imports/ui/components/GenericModule/generalInfo';
 import '/imports/api/modules/modules';
 
 import {Modules} from '/imports/api/modules/modules'
+import {Meteor} from 'meteor/meteor'
 
-Template.ModuleDashboard.helpers({
+const template = Template.ModuleDashboard;
+
+template.onCreated(function() {
+	Meteor.subscribe('subModulesFromModule', null);
+});
+
+template.helpers({
 	getAllModules(){
 		return Modules.find()
 	}
