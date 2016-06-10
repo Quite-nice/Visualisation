@@ -1,6 +1,8 @@
 <template name="allModules">
     {{#each module in getAllModules}}
-        <!-- must be replaceable by a not generic module! -->
-        {{> GenericModule module}}
+        <!-- must be replaceable by a not generic GenericModule! -->
+        <div class="col-xs-6">
+	        {{> GenericModule module}}
+        </div>
     {{/each}}
 </template>

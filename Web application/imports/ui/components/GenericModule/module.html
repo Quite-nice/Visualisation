@@ -13,11 +13,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <h6>Sent events</h6>
-                    <ul class="list-group">
-                        {{#each event in sentEvents}}
-                            <li class="list-group-item">{{> GenericEvent event}}</li>
-                        {{/each}}
-                    </ul>
+                    {{> ExpandableEventsList sentEvents}}
                 </div>
             </div>
 

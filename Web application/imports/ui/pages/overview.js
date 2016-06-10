@@ -3,4 +3,4 @@
  */
 import '/imports/ui/pages/overview.html'
 import '/imports/ui/layouts/allModules'
-import '/imports/ui/components/module/generalInfo'
+import '/imports/ui/components/GenericModule/generalInfo'

@@ -4,7 +4,7 @@
 import './module.html'
 
 import {Events} from '/imports/api/events/events'
-import {GenericEvent} from '/imports/ui/components/event/event'
+import {GenericEvent} from '/imports/ui/components/ExpandableEventsList/event'
 //import 'meteor/mock-github'
 
 Template.GenericModule.onCreated(function (){
@@ -14,7 +14,7 @@ Template.GenericModule.onCreated(function (){
 
 Template.GenericModule.helpers({
 	sentEvents(){
-		return Events.find({senderId: this._id}, {limit:10, sort: {date: -1}})
+		return Events.find({senderId: this._id}, {sort: {date: -1}})
 	}
 })
 

@@ -5,7 +5,7 @@
 import './menu.html'
 
 
-Template.menu.events({
+Template.Menu.events({
     'click .route': function(event){
         event.stopPropagation()
         this.visit()
