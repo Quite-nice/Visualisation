@@ -5,11 +5,13 @@ import './module.html'
 
 import {Events} from '/imports/api/events/events'
 import '/imports/ui/components/ExpandableEventsList/event'
+import './StateLabel'
 
 Template.GenericModule.onCreated(function (){
 	const module = this.data
 	this.subscribe('eventsSentByModule', module._id)
 	this.subscribe('subModuleCount', module._id)
+	this.subscribe('moduleState', module._id)
 })
 
 Template.GenericModule.helpers({

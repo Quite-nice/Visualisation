@@ -3,6 +3,7 @@
  */
 import { Meteor } from 'meteor/meteor'
 import { Modules } from '/imports/api/modules/modules'
+import { Events } from '/imports/api/events/events'
 import { Types } from '/imports/api/types/types'
 
 // all modules-related publications
@@ -25,9 +26,27 @@ Meteor.publishComposite('allModulesPlusType', {
 	}]
 })
 
-
 Meteor.publish('module', function(id) {
 	return Modules.find({_id: id})
+})
+
+Meteor.publish('moduleState', function(moduleId) {
+	const publication = this
+	const observer = Events.find({
+		senderId: moduleId,
+		type: 'state'
+	}, {
+		sort: {date: -1},
+		limit: 1
+	}).observeChanges({
+		added(id, fields) {
+			publication.changed('modules', moduleId, {state: fields.payload})
+		}
+	})
+
+	this.onStop(function() {observer.stop()})
+	
+	this.ready()
 })
 
 Meteor.publishComposite('modulePlusType', function(id) {

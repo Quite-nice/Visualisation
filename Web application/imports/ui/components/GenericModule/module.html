@@ -6,7 +6,7 @@
 <template name="GenericModule">
     <div class="panel panel-default">
         <div class="panel-heading">
-	        <span class="label label-success pull-right">Online</span>
+	        {{> StateLabel state=state class="pull-right"}}
             <h3 class="panel-title">{{name}}</h3>
         </div>
 
