@@ -50,6 +50,24 @@ Meteor.publish('subModulesFromModule', function(id) {
 	return Modules.find({parentId: id})
 })
 
+Meteor.publish('subModuleCount', function(parentId) {
+	let count = 0
+	const publication = this
+
+	const observer = Modules.find({parentId}).observeChanges({
+		added() {
+			publication.changed('modules', parentId, {subModuleCount: ++count})
+		},
+		removed() {
+			publication.changed('modules', parentId, {subModuleCount: --count})
+		}
+	})
+
+	this.onStop(function() {observer.stop()})
+
+	this.ready()
+})
+
 Meteor.publishComposite('subModulesFromModulePlusType', function(id) {
 	return {
 		find: function () {

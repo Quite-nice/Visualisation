@@ -11,14 +11,12 @@
         </div>
 
         <div class="panel-body">
-            <div class="row">
-                <div class="col-md-12">
-                    <h6>Sent events</h6>
-                    {{> ExpandableEventsList sentEvents}}
-                </div>
-            </div>
-
-
+            <p>
+	            <span class="label label-default">{{subModuleCount}}</span>
+	            submodule{{#unless single subModuleCount}}s{{/unless}}
+            </p>
+            <h6>Sent events</h6>
+            {{> ExpandableEventsList sentEvents}}
         </div>
     </div>
 

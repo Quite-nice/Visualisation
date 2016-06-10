@@ -7,11 +7,14 @@ import {Events} from '/imports/api/events/events'
 import '/imports/ui/components/ExpandableEventsList/event'
 
 Template.GenericModule.onCreated(function (){
-	Meteor.subscribe('eventsSentByModule', this.data._id)
+	const module = this.data
+	this.subscribe('eventsSentByModule', module._id)
+	this.subscribe('subModuleCount', module._id)
 })
 
 Template.GenericModule.helpers({
 	sentEvents(){
 		return Events.find({senderId: this._id}, {sort: {date: -1}})
-	}
+	},
+	single: number => number==1
 })

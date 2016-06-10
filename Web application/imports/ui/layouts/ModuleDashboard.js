@@ -13,7 +13,7 @@ import {Meteor} from 'meteor/meteor'
 const template = Template.ModuleDashboard;
 
 template.onCreated(function() {
-	Meteor.subscribe('subModulesFromModule', null);
+	this.subscribe('subModulesFromModule', null);
 });
 
 template.helpers({
