@@ -53,7 +53,8 @@ Meteor.publish('subModulesFromModule', function(id) {
 Meteor.publish('subModuleCount', function(parentId) {
 	let count = 0
 	const publication = this
-
+	
+	publication.changed('modules', parentId, {subModuleCount: count})
 	const observer = Modules.find({parentId}).observeChanges({
 		added() {
 			publication.changed('modules', parentId, {subModuleCount: ++count})
