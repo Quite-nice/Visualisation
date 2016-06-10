@@ -17,7 +17,7 @@ Meteor.publish('eventsReceivedByModule', (id) => {
 })
 
 Meteor.publish('eventsSentByModule', (id) => {
-	return Events.find({senderId: id})
+	return Events.find({senderId: id}, {sort: {date: -1}})
 })
 
 Meteor.publish('eventsWithinTimeSpan', (dateFrom, dateTo) => {
