@@ -4,7 +4,7 @@
 
 import '../style.css'
 import './BasicPage.html'
-import '/imports/ui/components/Menu/menu'
+import '/imports/ui/components/menu/menu'
 
 import { navigation } from '/imports/startup/client/routes'
 
