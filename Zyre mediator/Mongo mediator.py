@@ -90,7 +90,7 @@ def rethinkdb_writer(ctx, pipe):
                     module_type = 'unknown'
 
                 try:
-                    parent_module_id = headers['parent']
+                    parent_module_id = headers['parentId']
                 except KeyError:
                     print("The header doesn't contain the module's parent id")
                     parent_module_id = None
@@ -116,6 +116,7 @@ def rethinkdb_writer(ctx, pipe):
                 try:
                     data = json.loads(msg_frame[0])
                 except:
+                    data = {}
                     print 'Invalid JSON string'
 
                 # print data
