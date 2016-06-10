@@ -116,6 +116,7 @@ def rethinkdb_writer(ctx, pipe):
                 try:
                     data = json.loads(msg_frame[0])
                 except:
+                    data = {}
                     print 'Invalid JSON string'
 
                 # print data
