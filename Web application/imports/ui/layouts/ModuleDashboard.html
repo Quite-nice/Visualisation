@@ -1,15 +1,15 @@
 <template name="ModuleDashboard">
 	<div class="row">
-		<div class="col-xs-3">
+		<div class="col-md-12">
 			{{> modulesGeneralInfo}}
 		</div>
-		<div class="col-xs-9">
+	</div>
+	<div class="row">
 			{{#each module in getAllModules}}
 				<!-- must be replaceable by a not generic GenericModule! -->
-				<div class="col-xs-6">
+				<div class="col-sm-4">
 					{{> GenericModule module}}
 				</div>
 			{{/each}}
-		</div>
 	</div>
 </template>
