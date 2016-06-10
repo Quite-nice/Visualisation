@@ -5,6 +5,7 @@
 //PACKAGES
 import {BlazeLayout} from 'meteor/kadira:blaze-layout';
 import {Menu} from 'meteor/devian:navigation';
+import {FlowRouter} from 'meteor/kadira:flow-router'
 
 
 // //TEMPLATES
@@ -15,6 +16,13 @@ import '../../ui/pages/BasicPage'
 export const navigation = new Menu();
 
 navigation.route('/', {
+	name: 'Overview',
+	action: function(){
+		BlazeLayout.render('BasicPage', {content: 'ModuleDashboard'})
+	}
+})
+
+FlowRouter.route('/module/:moduleId', {
 	name: 'Overview',
 	action: function(){
 		BlazeLayout.render('BasicPage', {content: 'ModuleDashboard'})

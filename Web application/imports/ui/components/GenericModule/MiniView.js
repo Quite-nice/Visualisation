@@ -1,7 +1,7 @@
 /**
  * Created by Jeroen on 02/06/16.
  */
-import './module.html'
+import './MiniView.html'
 
 import {Events} from '/imports/api/events/events'
 import '/imports/ui/components/ExpandableEventsList/event'

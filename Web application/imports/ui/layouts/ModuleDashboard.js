@@ -3,8 +3,8 @@
  */
 
 import './ModuleDashboard.html';
-import '/imports/ui/components/GenericModule/module';
-import '/imports/ui/components/GenericModule/generalInfo';
+import '/imports/ui/components/GenericModule/MiniView';
+import '/imports/ui/components/GenericModule/DetailView';
 import '/imports/api/modules/modules';
 
 import {Modules} from '/imports/api/modules/modules'
