@@ -19,7 +19,7 @@ export const webSocketService = bonjour.publish({
 webSocketService.on('up', Meteor.bindEnvironment(function() {
 	Events.insert({
 		senderId: mediatorId,
-		type: 'stateChange',
+		type: 'state',
 		payload: 2,
 		date: new Date()
 	})

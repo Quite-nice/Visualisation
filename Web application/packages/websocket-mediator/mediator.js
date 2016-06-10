@@ -11,7 +11,7 @@ export const mediatorId = Modules.findOne({type: 'websocket-mediator'})._id;
 
 Events.insert({
 	senderId: mediatorId,
-	type: 'stateChange',
+	type: 'state',
 	payload: 1,
 	date: new Date()
 });
