@@ -1,4 +1,14 @@
 <template name="ModuleDashboard">
+	{{#unless root}}
+	<ol class="breadcrumb">
+		<li><a href="/">Root</a></li>
+		{{#each breadcrumb in breadcrumbs}}
+			<li><a href="/module/{{breadcrumb._id}}">{{breadcrumb.name}}</a></li>
+		{{/each}}
+		<li>{{module.name}}</li>
+	</ol>
+	{{/unless}}
+
 	{{> DetailView module}}
 	<div class="row">
 		{{#each subModule in subModules}}

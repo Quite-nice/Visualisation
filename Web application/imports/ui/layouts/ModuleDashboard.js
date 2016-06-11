@@ -45,5 +45,25 @@ template.helpers({
 		const context = FlowRouter.current()
 		const root = context.route.name == "All modules";
 		return Modules.find({parentId: root ? null : context.params.moduleId})
+	},
+
+	//Breadcrumbs
+	root() {
+		FlowRouter.watchPathChange();
+		return FlowRouter.current().route.name == "All modules";
+	},
+	breadcrumbs() {
+		FlowRouter.watchPathChange();
+		let breadcrumbs = [];
+		if (Modules.find(FlowRouter.current().params.moduleId).count() > 0) {
+			const currentModule = Modules.findOne(FlowRouter.current().params.moduleId);
+			let parentModule = Modules.findOne(currentModule.parentId);
+			while (parentModule != undefined && parentModule._id != null) {
+				breadcrumbs.push(parentModule);
+				parentModule = Modules.findOne(parentModule.parentId);
+			}
+		}
+		console.log(breadcrumbs)
+		return breadcrumbs.reverse()
 	}
 });
