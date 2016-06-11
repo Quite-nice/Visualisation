@@ -77,9 +77,9 @@ Meteor.publish('subModulesFromModule', function(id) {
 			moduleStateObservers.set(id, publishModuleState(id, publication));
 			subModuleCountObservers.set(id, publishSubModuleCount(id, publication));
 		},
-		changed(id, fields) { publication.changed(id, fields) },
+		changed(id, fields) { publication.changed('modules', id, fields) },
 		removed(id) {
-			publication.removed(id)
+			publication.removed('modules', id)
 			moduleStateObservers.get(id).stop()
 			subModuleCountObservers.get(id).stop()
 		}
