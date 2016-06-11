@@ -41,7 +41,6 @@ function publishAncestorNames(moduleId, publication) {
 		ancestors.push(parentId)
 		parentId = parentIdOf(parentId)
 	}
-	console.log('publishing ancestor names', ancestors)
 	Modules.find({_id: {$in: ancestors}}, {fields: {name: 1}})._publishCursor(publication);
 }
 
