@@ -16,15 +16,15 @@ import '../../ui/pages/BasicPage'
 export const navigation = new Menu();
 
 navigation.route('/', {
-	name: 'Overview',
-	action: function(){
+	name: 'All modules',
+	action() {
 		BlazeLayout.render('BasicPage', {content: 'ModuleDashboard'})
 	}
 })
 
 FlowRouter.route('/module/:moduleId', {
-	name: 'Overview',
-	action: function(){
+	name: 'Module',
+	action() {
 		BlazeLayout.render('BasicPage', {content: 'ModuleDashboard'})
 	}
 });

@@ -1,10 +1,16 @@
 <template name="ModuleDashboard">
-	{{> DetailView}}
+	{{> DetailView module}}
 	<div class="row">
-		{{#each module in getAllModules}}
+		{{#each subModule in subModules}}
 			<!-- must be replaceable by a not generic GenericModule! -->
 			<div class="col-sm-4">
-				{{> GenericModule module}}
+				{{> GenericModule subModule}}
+			</div>
+		{{else}}
+			<div class="col-sm-12">
+				<div class="alert alert-info">
+					This module has no submodules
+				</div>
 			</div>
 		{{/each}}
 	</div>
