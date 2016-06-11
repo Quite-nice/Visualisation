@@ -30,25 +30,49 @@ Meteor.publish('module', function(id) {
 	Modules.find({_id: id})._publishCursor(this);
 	publishModuleState(id, this);
 	publishSubModuleCount(id, this);
+	publishAncestorNames(id, this)
 	this.ready();
 })
 
+function publishAncestorNames(moduleId, publication) {
+	const ancestors = [];
+	let parentId = parentIdOf(moduleId);
+	while (parentId != null) {
+		ancestors.push(parentId)
+		parentId = parentIdOf(parentId)
+	}
+	console.log('publishing ancestor names', ancestors)
+	Modules.find({_id: {$in: ancestors}}, {fields: {name: 1}})._publishCursor(publication);
+}
+
+function parentIdOf(moduleId) {
+	const module = Modules.findOne({_id: moduleId}, {fields: {parentId: 1}});
+	if (module == undefined) {
+		return null
+	} else {
+		return module.parentId
+	}
+}
+
 function publishModuleState(moduleId, publication) {
-	const observer = Events.find({
-		senderId: moduleId,
-		type: 'state'
-	}, {
-		sort: {date: -1},
-		limit: 1
-	}).observeChanges({
-		added(id, fields) {
-			publication.changed('modules', moduleId, {state: fields.payload})
-		}
-	})
+	if (moduleId != null) {
+		const observer = Events.find({
+			senderId: moduleId,
+			type: 'state'
+		}, {
+			sort: {date: -1},
+			limit: 1
+		}).observeChanges({
+			added(id, fields) {
+				publication.changed('modules', moduleId, {state: fields.payload})
+			}
+		})
 
-	publication.onStop(function() {observer.stop()})
+		publication.onStop(function() {observer.stop()})
 
-	return observer
+		return observer
+	}
+	return null
 }
 
 Meteor.publishComposite('modulePlusType', function(id) {
