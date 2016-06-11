@@ -9,10 +9,8 @@ import {Events} from '/imports/api/events/events'
 const template = Template.DetailView;
 
 template.onCreated(function () {
-    console.log('detail created');
     this.autorun(() => {
         const data = Template.currentData();
-        console.log(data)
     })
 });
 
