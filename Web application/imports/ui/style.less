@@ -1,0 +1,22 @@
+.limitted-height {
+	max-height: 40vh;
+	overflow: scroll;
+}
+
+.list-group.limitted-height {
+	border: 1px solid #ddd;
+	border-radius: 4px;
+
+	.list-group-item {
+		border-left: none;
+		border-right: none;
+
+		&:first-child {
+			border-top: none;
+		}
+
+		&:last-child {
+			border-bottom: none;
+		}
+	}
+}
