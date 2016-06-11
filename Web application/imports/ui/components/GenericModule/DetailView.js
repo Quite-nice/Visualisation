@@ -8,12 +8,6 @@ import {Events} from '/imports/api/events/events'
 
 const template = Template.DetailView;
 
-template.onCreated(function () {
-    this.autorun(() => {
-        const data = Template.currentData();
-    })
-});
-
 template.helpers({
     totalNumberOfModules(){
         return Modules.find().count()

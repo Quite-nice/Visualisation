@@ -27,11 +27,13 @@ Meteor.publishComposite('allModulesPlusType', {
 })
 
 Meteor.publish('module', function(id) {
-	return Modules.find({_id: id})
+	Modules.find({_id: id})._publishCursor(this);
+	publishModuleState(id, this);
+	publishSubModuleCount(id, this);
+	this.ready();
 })
 
-Meteor.publish('moduleState', function(moduleId) {
-	const publication = this
+function publishModuleState(moduleId, publication) {
 	const observer = Events.find({
 		senderId: moduleId,
 		type: 'state'
@@ -44,10 +46,10 @@ Meteor.publish('moduleState', function(moduleId) {
 		}
 	})
 
-	this.onStop(function() {observer.stop()})
-	
-	this.ready()
-})
+	publication.onStop(function() {observer.stop()})
+
+	return observer
+}
 
 Meteor.publishComposite('modulePlusType', function(id) {
 	return {
@@ -66,27 +68,49 @@ Meteor.publishComposite('modulePlusType', function(id) {
 
 
 Meteor.publish('subModulesFromModule', function(id) {
-	return Modules.find({parentId: id})
+	const publication = this;
+	const moduleStateObservers = new Map()
+	const subModuleCountObservers = new Map()
+	const observer = Modules.find({parentId: id}).observeChanges({
+		added(id, fields) {
+			publication.added('modules', id, fields);
+			moduleStateObservers.set(id, publishModuleState(id, publication));
+			subModuleCountObservers.set(id, publishSubModuleCount(id, publication));
+		},
+		changed(id, fields) { publication.changed(id, fields) },
+		removed(id) {
+			publication.removed(id)
+			moduleStateObservers.get(id).stop()
+			subModuleCountObservers.get(id).stop()
+		}
+	});
+
+	publication.onStop(function() {
+		observer.stop();
+	})
 })
 
-Meteor.publish('subModuleCount', function(parentId) {
+function publishSubModuleCount(parentId, publication) {
 	let count = 0
-	const publication = this
-	
+
 	publication.changed('modules', parentId, {subModuleCount: count})
 	const observer = Modules.find({parentId}).observeChanges({
 		added() {
-			publication.changed('modules', parentId, {subModuleCount: ++count})
+			count = count+1
+			publication.changed('modules', parentId, {subModuleCount: count})
 		},
 		removed() {
-			publication.changed('modules', parentId, {subModuleCount: --count})
+			count = count - 1
+			publication.changed('modules', parentId, {subModuleCount: count})
 		}
 	})
 
-	this.onStop(function() {observer.stop()})
+	publication.onStop(function() {
+		observer.stop()
+	})
 
-	this.ready()
-})
+	return observer
+}
 
 Meteor.publishComposite('subModulesFromModulePlusType', function(id) {
 	return {
