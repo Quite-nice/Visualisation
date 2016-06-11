@@ -9,24 +9,21 @@ import '/imports/api/modules/modules';
 
 import {Modules} from '/imports/api/modules/modules'
 import {Meteor} from 'meteor/meteor'
+import {replaceSubscription} from "../subscriptionManagement";
 
 const template = Template.ModuleDashboard;
-
-function replaceSubscription(context, oldSubscription, ...parameters) {
-	return context.subscribe.apply(context, parameters.concat(function() {
-		if (oldSubscription != null) oldSubscription.stop()
-	}))
-}
 
 template.onCreated(function() {
 	let moduleSubscription = null;
 	let subModulesSubscription = null;
-	Tracker.autorun(() => {
+	this.autorun(() => {
 		FlowRouter.watchPathChange();
 		const context = FlowRouter.current();
 		const root = context.route.name == "All modules";
 
-		if (!root) moduleSubscription = replaceSubscription(this, moduleSubscription, 'module', context.params.moduleId);
+		if (!root) {
+			moduleSubscription = replaceSubscription(this, moduleSubscription, 'module', context.params.moduleId);
+		}
 		subModulesSubscription = replaceSubscription(this, subModulesSubscription, 'subModulesFromModule', root ? null : context.params.moduleId);
 	})
 });
