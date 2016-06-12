@@ -20,3 +20,25 @@
 		}
 	}
 }
+
+ul.json-list {
+	list-style: none;
+	padding-left: ~"calc(1.8em + 15px)";
+
+	&> li {
+		&> .glyphicon {
+			margin-left: ~"calc(-2em - 15px)";
+			transform: scale(0.7);
+			transition: transform 0.25s;
+
+			&.open {
+				transform: rotate(90deg) scale(0.7);
+			}
+		}
+
+		&:hover > .glyphicon {
+			color: #333;
+		}
+	}
+
+}
