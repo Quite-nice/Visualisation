@@ -1,10 +1,24 @@
 <template name="DetailView">
-	<h2>{{name}}</h2>
+	<h2>{{module.name}}</h2>
 	<p>
-		{{> StateLabel}} <span class="label label-default">{{subModuleCount}}</span> submodules registered
+		{{> StateLabel}} <span class="label label-default">{{module.subModuleCount}}</span> submodules registered
 	</p>
-	<h3>Events</h3>
-	<p><span class="label label-default">{{totalNumberOfEvents}}</span> events registered</p>
+
+	<ul class="nav nav-tabs">
+		<li role="presentation" class="active"><a href="#">Events</a></li>
+		<li role="presentation"><a href="#">Submodule graph</a></li>
+		<li role="presentation"><a href="#">Timeline</a></li>
+	</ul>
+
+	<p></p>
+	<div class="row">
+		<div class="col-md-3">
+			{{> SelectableEventsList eventsCursor=events module=module}}
+		</div>
+		<div class="col-md-9">
+			<p>nothing selected</p>
+		</div>
+	</div>
 
 	<hr>
 </template>

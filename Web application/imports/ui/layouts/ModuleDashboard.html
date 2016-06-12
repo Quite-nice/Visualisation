@@ -1,20 +1,27 @@
 <template name="ModuleDashboard">
-	{{#unless root}}
-	<ol class="breadcrumb">
-		<li><a href="/">Root</a></li>
-		{{#each breadcrumb in breadcrumbs}}
-			<li><a href="/module/{{breadcrumb._id}}">{{breadcrumb.name}}</a></li>
-		{{/each}}
-		<li>{{module.name}}</li>
-	</ol>
-	{{/unless}}
+	{{#if root}}
+		<h2>{{rootModule.name}}</h2>
+		<p>
+			<span class="label label-default">{{rootModule.subModuleCount}}</span> modules registered
+		</p>
 
-	{{> DetailView module}}
+	{{else}}
+
+		<ol class="breadcrumb">
+			<li><a href="/">Root</a></li>
+			{{#each breadcrumb in breadcrumbs}}
+				<li><a href="/module/{{breadcrumb._id}}">{{breadcrumb.name}}</a></li>
+			{{/each}}
+			<li>{{module.name}}</li>
+		</ol>
+		{{> DetailView module=module}}
+	{{/if}}
+
 	<div class="row">
 		{{#each subModule in subModules}}
 			<!-- must be replaceable by a not generic GenericModule! -->
 			<div class="col-sm-4">
-				{{> GenericModule subModule}}
+				{{> Template.dynamic template=(miniView subModule) data=(miniViewData subModule)}}
 			</div>
 		{{else}}
 			<div class="col-sm-12">
