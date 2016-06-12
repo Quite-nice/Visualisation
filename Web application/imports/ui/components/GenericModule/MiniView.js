@@ -4,7 +4,7 @@
 import './MiniView.html'
 
 import {Events} from '/imports/api/events/events'
-import '/imports/ui/components/ExpandableEventsList/event'
+import '/imports/ui/components/ExpandableEventsList/eventList'
 import './StateLabel'
 
 Template.GenericModule.onCreated(function (){

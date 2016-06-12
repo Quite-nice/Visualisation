@@ -6,10 +6,7 @@
 <template name="ExpandableEventsList">
 	<ul class="events list-group limitted-height">
 		{{#each event in this}}
-			<li class="list-group-item">
-				<span class="">{{event.type}}</span>
-				<span class="text-muted pull-right">{{format event.date}}</span>
-			</li>
+			{{> ExpandableEventItem event}}
 		{{/each}}
 	</ul>
 </template>

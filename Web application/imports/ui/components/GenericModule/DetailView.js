@@ -6,6 +6,8 @@ import './DetailView.html'
 import {Modules} from '/imports/api/modules/modules'
 import {Events} from '/imports/api/events/events'
 
+import '/imports/ui/components/JsonView/JsonView'
+
 const template = Template.DetailView;
 
 template.helpers({

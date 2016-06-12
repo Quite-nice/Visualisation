@@ -10,14 +10,14 @@
             <h3 class="panel-title"><a href="/module/{{_id}}">{{name}}</a></h3>
         </div>
 
-        <div class="panel-body">
+	    <div class="panel-body">
             <p>
 	            <span class="label label-default">{{subModuleCount}}</span>
 	            submodule{{#unless single subModuleCount}}s{{/unless}}
             </p>
             <h6>Sent events</h6>
+
             {{> ExpandableEventsList sentEvents}}
         </div>
     </div>
-
 </template>
