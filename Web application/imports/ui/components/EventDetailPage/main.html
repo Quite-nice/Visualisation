@@ -17,11 +17,13 @@
 			</ul>
 		</div>
 		<div class="col-md-9">
-			{{#if selectedEvent}}
-				{{> JsonView object=selectedEvent}}
-			{{else}}
-				Nothing selected
-			{{/if}}
+			<div class="well">
+				{{#if selectedEvent}}
+					{{> JsonView object=selectedEvent}}
+				{{else}}
+					Nothing selected
+				{{/if}}
+			</div>
 		</div>
 	</div>
 
