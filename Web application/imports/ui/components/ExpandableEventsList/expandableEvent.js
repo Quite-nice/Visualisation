@@ -1,5 +1,7 @@
+import '../Event/EventLineView'
 import './expandableEvent.html'
-import moment from 'moment'
+import '/imports/ui/components/JsonView/JsonView'
+
 import {ReactiveVar} from 'meteor/reactive-var'
 
 const template = Template.ExpandableEventItem
@@ -11,9 +13,6 @@ template.onCreated(function() {
 template.helpers({
 	expand() {
 		return Template.instance().expand.get()
-	},
-	format(date) {
-		return moment(date).format('HH:mm:ss.SSS')
 	}
 })
 

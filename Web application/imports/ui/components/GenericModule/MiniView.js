@@ -11,7 +11,7 @@ Template.GenericModule.onCreated(function (){
 	const template = this;
 
 	this.autorun(function() {
-		const module = Template.currentData()
+		const module = Template.currentData().module
 		if (module != undefined) {
 			template.subscribe('eventsSentByModule', module._id)
 		}
@@ -20,7 +20,7 @@ Template.GenericModule.onCreated(function (){
 
 Template.GenericModule.helpers({
 	sentEvents(){
-		return Events.find({senderId: this._id}, {sort: {date: -1}})
+		return Events.find({senderId: this.module._id}, {sort: {date: -1}})
 	},
 	single: number => number==1
 })

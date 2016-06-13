@@ -3,11 +3,9 @@
  */
 
 import './ModuleDashboard.html';
-import '/imports/ui/components/GenericModule/MiniView';
-import '/imports/ui/components/GenericModule/DetailView';
-import '/imports/api/modules/modules';
+import {findModuleDescriptorField} from '/imports/ui/extensions/registry'
 
-import {Modules} from '/imports/api/modules/modules'
+import {Events, Modules} from 'meteor/database'
 import {Meteor} from 'meteor/meteor'
 
 const template = Template.ModuleDashboard;
@@ -26,25 +24,30 @@ template.onCreated(function() {
 });
 
 template.helpers({
+	rootModule() {
+		return {
+			name: 'All modules',
+			subModuleCount: Modules.find({parentId: null}).count()
+		}
+	},
 	module() {
 		FlowRouter.watchPathChange();
 		const context = FlowRouter.current();
-		if (context.route.name == "All modules") {
-			return {
-				name: 'All modules',
-				subModuleCount: Modules.find({parentId: null}).count()
-			}
-		} else {
-			const module = Modules.findOne(context.params.moduleId) || {}
-			module.subModuleCount = Modules.find({parentId: context.params.moduleId}).count()
-			return module
-		}
+		const module = Modules.findOne(context.params.moduleId) || {}
+		module.subModuleCount = Modules.find({parentId: context.params.moduleId}).count()
+		return module
 	},
 	subModules() {
 		FlowRouter.watchPathChange();
 		const context = FlowRouter.current()
 		const root = context.route.name == "All modules";
 		return Modules.find({parentId: root ? null : context.params.moduleId})
+	},
+	miniView(module) {
+		return findModuleDescriptorField(module, 'miniView')
+	},
+	miniViewData(module) {
+		return {module}
 	},
 
 	//Breadcrumbs
@@ -63,7 +66,6 @@ template.helpers({
 				parentModule = Modules.findOne(parentModule.parentId);
 			}
 		}
-		console.log(breadcrumbs)
 		return breadcrumbs.reverse()
 	}
 });

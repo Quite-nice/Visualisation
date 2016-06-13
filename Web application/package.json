@@ -1,5 +1,5 @@
 {
-  "name": "Web application",
+  "name": "web_application",
   "private": true,
   "scripts": {
     "start": "meteor run"
