@@ -9,7 +9,7 @@ import '/imports/ui/components/JsonView/JsonView'
 export const genericModuleDescriptor = new ModuleDescriptor({
 	miniView: 'GenericModule',
 	detailView: 'DetailView',
-	detailPageViews: ['EventsDetailPage']
+	detailPageViews: ['EventDetailPage']
 })
 
 genericModuleDescriptor.registerEvent(function() {return true}, new EventDescriptor({

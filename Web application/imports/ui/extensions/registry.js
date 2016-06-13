@@ -6,7 +6,7 @@ const moduleTypeRegister = new Map();
 const moduleIndicatorRegister = [];
 const detailPageNames = new Map()
 
-registerDetailPageName('Events', 'EventsDetailPage')
+registerDetailPageName('Events', 'EventDetailPage')
 
 export function registerDetailPageName(name, view) {
 	detailPageNames.set(view, name)

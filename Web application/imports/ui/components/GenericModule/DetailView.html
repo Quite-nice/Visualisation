@@ -6,10 +6,13 @@
 
 	<ul class="nav nav-tabs">
 		{{#each pages}}
-			<li role="presentation" class="active"><a href="#">{{pageName this}}</a></li>
+			<li role="presentation" class="{{#if isSelectedPage this}}active{{/if}}"><a href="#">{{pageName this}}</a></li>
 		{{/each}}
 	</ul>
-	{{> Template.dynamic template="EventDetailPage"}}
+
+	{{#if selectedPage}}
+		{{> Template.dynamic template=selectedPage}}
+	{{/if}}
 
 	<hr>
 </template>
