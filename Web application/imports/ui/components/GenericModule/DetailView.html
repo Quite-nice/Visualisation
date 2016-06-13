@@ -5,20 +5,11 @@
 	</p>
 
 	<ul class="nav nav-tabs">
-		<li role="presentation" class="active"><a href="#">Events</a></li>
-		<li role="presentation"><a href="#">Submodule graph</a></li>
-		<li role="presentation"><a href="#">Timeline</a></li>
+		{{#each pages}}
+			<li role="presentation" class="active"><a href="#">{{pageName this}}</a></li>
+		{{/each}}
 	</ul>
-
-	<p></p>
-	<div class="row">
-		<div class="col-md-3">
-			{{> SelectableEventsList eventsCursor=events module=module}}
-		</div>
-		<div class="col-md-9">
-			<p>nothing selected</p>
-		</div>
-	</div>
+	{{> Template.dynamic template="EventDetailPage"}}
 
 	<hr>
 </template>

@@ -8,9 +8,8 @@ import '/imports/ui/components/JsonView/JsonView'
 
 export const genericModuleDescriptor = new ModuleDescriptor({
 	miniView: 'GenericModule',
-	detailView: 'DetailView'
-	// ,
-	// detailPageViews: ['ModuleEventsDetailPage']
+	detailView: 'DetailView',
+	detailPageViews: ['EventsDetailPage']
 })
 
 genericModuleDescriptor.registerEvent(function() {return true}, new EventDescriptor({

@@ -3,13 +3,16 @@
  */
 
 import './DetailView.html'
-import '../SelectableEventsList/eventList'
+import {findModuleDescriptorField, getDetailPageName} from '/imports/ui/extensions/registry'
 
 const template = Template.DetailView;
 
 template.helpers({
-	events: [
-		{type: 'Hello', date: new Date()},
-		{type: 'World', date: new Date()}
-	]
+	pages() {
+		return findModuleDescriptorField(this.module, 'detailPageViews')
+	},
+	pageName(page) {
+		console.log(page)
+		return getDetailPageName(page)
+	}
 })

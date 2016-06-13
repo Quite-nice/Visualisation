@@ -1,9 +1,20 @@
 import {genericModuleDescriptor} from './genericDescriptors'
+import '/imports/ui/components/EventDetailPage/main'
 
 // Template registers
 const moduleTypeRegister = new Map();
 const moduleIndicatorRegister = [];
 const detailPageNames = new Map()
+
+registerDetailPageName('Events', 'EventsDetailPage')
+
+export function registerDetailPageName(name, view) {
+	detailPageNames.set(view, name)
+}
+
+export function getDetailPageName(view) {
+	return detailPageNames.get(view)
+}
 
 export function findModuleDescriptorField(module, extractField) {
 	if (module == undefined) throw new Error('This function expects a module as the first parameter');
@@ -39,3 +50,4 @@ export function findEventDescriptorField(event, module, field) {
 		}
 	})
 }
+
