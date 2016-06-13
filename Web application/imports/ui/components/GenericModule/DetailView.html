@@ -3,8 +3,18 @@
 	<p>
 		{{> StateLabel}} <span class="label label-default">{{subModuleCount}}</span> submodules registered
 	</p>
+<<<<<<< Updated upstream
 	<h3>Events</h3>
 	<p><span class="label label-default">{{totalNumberOfEvents}}</span> events registered</p>
+=======
+
+	<ul class="nav nav-tabs">
+		{{#each pages}}
+			<li role="presentation" class="active"><a href="#">{{pageName this}}</a></li>
+		{{/each}}
+	</ul>
+	{{> Template.dynamic template="EventDetailPage"}}
+>>>>>>> Stashed changes
 
 	<hr>
 </template>
