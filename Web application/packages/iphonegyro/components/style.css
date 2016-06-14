@@ -1,9 +1,7 @@
 .iphoneRepresentation {
-	background: green;
-
-	height: 30vh;
 	width: 18vh;
 
+	display: block;
 	margin-left: auto;
 	margin-right: auto;
 
@@ -11,5 +9,5 @@
 }
 
 .panel-body.perspective {
-	perspective: 200px;
+	perspective: 250px;
 }
