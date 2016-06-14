@@ -13,7 +13,7 @@ Package.describe({
 Package.onUse(function(api) {
   api.versionsFrom('1.3.2.4');
   api.use(['ecmascript', 'mongo']);
-  api.use(['reywood:publish-composite']);
+  api.use(['reywood:publish-composite@1.4.2']);
   api.mainModule('client.js', 'client');
   api.mainModule('server.js', 'server');
 });
