@@ -1,0 +1,1 @@
+Basic generic extensions using for the visualisation project using the `visualisation:extension-system`.

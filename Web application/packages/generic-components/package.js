@@ -20,7 +20,7 @@ Package.onUse(function(api) {
 Package.onTest(function(api) {
 	api.use('ecmascript');
 	api.use('tinytest');
-	api.use('generic-components');
+	api.use('visualisation:generic-components');
 	api.mainModule('generic-ui-tests.js');
 });
 
