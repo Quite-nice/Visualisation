@@ -4,10 +4,10 @@ Package.describe({
 	// Brief, one-line summary of the package.
 	summary: 'Use meteor as a mediator to write messages and modules in the database',
 	// URL to the Git repository containing the source code for this package.
-	git: '',
+	git: 'https://github.com/Quite-nice/Visualisation/',
 	// By default, Meteor will default to using README.md for documentation.
 	// To avoid submitting documentation, set this field to null.
-	documentation: 'README.md'
+	documentation: null
 });
 
 Package.onUse(function(api) {
