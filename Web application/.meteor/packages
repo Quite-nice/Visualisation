@@ -27,8 +27,5 @@ reywood:publish-composite
 twbs:bootstrap
 devian:navigation
 less
-visualisation:database
-visualisation:extension-system
 visualisation:iphonegyro
-visualisation:generic-components
-visualisation:core-ui
+visualisation:core
