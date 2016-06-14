@@ -70,8 +70,6 @@ reload@1.1.9
 retry@1.0.8
 reywood:publish-composite@1.4.2
 routepolicy@1.0.11
-semantic:ui@2.1.8
-semantic:ui-data@2.1.8
 spacebars@1.0.12
 spacebars-compiler@1.0.12
 standard-minifier-css@1.0.7
