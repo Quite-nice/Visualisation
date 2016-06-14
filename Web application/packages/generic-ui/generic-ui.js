@@ -17,9 +17,11 @@ const genericEventDescriptor = new EventDescriptor({
 	lineView: 'GenericEventLineView'
 })
 
-genericModuleDescriptor.registerEvent(function() {return true}, genericEventDescriptor)
-genericModuleDescriptor.registerEvent('state', new EventDescriptor({
+const stateEventDescriptor = new EventDescriptor({
 	lineView: 'StateEventLineView'
-}))
+})
+
+genericModuleDescriptor.registerEvent(function() {return true}, genericEventDescriptor)
+// genericModuleDescriptor.registerEvent('state', stateEventDescriptor)
 
 registerModuleDescriptor(function() {return true}, genericModuleDescriptor)

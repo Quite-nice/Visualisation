@@ -1,0 +1,17 @@
+<!--
+    DISCLAIMER:
+        This template assumes a Module document in the datacontext
+        -> should be called like this: {{> GenericModule data}}
+-->
+<template name="iPhoneGyroView">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+	        {{> StateLabel state=module.state class="pull-right"}}
+            <h3 class="panel-title"><a href="/module/{{module._id}}">{{module.name}}</a></h3>
+        </div>
+
+	    <div class="panel-body perspective">
+            <div class="iphoneRepresentation"></div>
+        </div>
+    </div>
+</template>
