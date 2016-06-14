@@ -1,4 +1,5 @@
 import './JsonView.html'
+import './style.less'
 
 import './Object'
 import './String.html'

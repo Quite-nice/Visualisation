@@ -27,7 +27,6 @@ ejson@1.0.12
 es5-shim@4.5.11
 extension-system@0.0.1
 fastclick@1.0.12
-generic-ui@0.0.1
 geojson-utils@1.0.9
 hot-code-push@1.0.4
 html-tools@1.0.10
@@ -85,6 +84,7 @@ twbs:bootstrap@3.3.6
 ui@1.0.11
 underscore@1.0.9
 url@1.0.10
+visualisation:generic-components@0.0.1
 webapp@1.2.9
 webapp-hashing@1.0.9
 xolvio:cleaner@0.3.1

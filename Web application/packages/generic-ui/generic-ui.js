@@ -6,6 +6,7 @@ import './components/JsonView/JsonView'
 import './components/Event/GenericEventLineView'
 import './components/Event/StateEvent'
 import './components/EventDetailPage/main'
+import './style.less'
 
 export const genericModuleDescriptor = new ModuleDescriptor({
 	miniView: 'GenericModule',
