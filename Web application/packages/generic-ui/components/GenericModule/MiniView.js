@@ -3,8 +3,8 @@
  */
 import './MiniView.html'
 
-import {Events} from '/imports/api/events/events'
-import '/imports/ui/components/ExpandableEventsList/eventList'
+import {Events} from 'meteor/database'
+import '../ExpandableEventsList/eventList'
 import './StateLabel'
 
 Template.GenericModule.onCreated(function (){

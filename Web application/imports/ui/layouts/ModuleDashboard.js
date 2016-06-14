@@ -3,7 +3,7 @@
  */
 
 import './ModuleDashboard.html';
-import {findModuleDescriptorField} from '/imports/ui/extensions/registry'
+import {findModuleDescriptorField} from 'meteor/extension-system'
 
 import {Events, Modules} from 'meteor/database'
 import {Meteor} from 'meteor/meteor'

@@ -1,6 +1,6 @@
 import '../Event/EventLineView'
+import '../JsonView/JsonView'
 import './expandableEvent.html'
-import '/imports/ui/components/JsonView/JsonView'
 
 import {ReactiveVar} from 'meteor/reactive-var'
 

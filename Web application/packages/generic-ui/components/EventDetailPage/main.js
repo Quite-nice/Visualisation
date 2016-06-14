@@ -3,7 +3,7 @@
  */
 
 import './main.html'
-import {Events} from '/imports/api/events/events'
+import {Events} from 'meteor/database'
 import {ReactiveVar} from 'meteor/reactive-var'
 
 const template = Template.EventDetailPage;

@@ -1,5 +1,5 @@
-import {genericModuleDescriptor} from './genericDescriptors'
-import '/imports/ui/components/EventDetailPage/main'
+export {EventDescriptor} from './EventDescriptor'
+export {ModuleDescriptor} from './ModuleDescriptor'
 
 // Template registers
 const moduleTypeRegister = new Map();
@@ -14,6 +14,14 @@ export function registerDetailPageName(name, view) {
 
 export function getDetailPageName(view) {
 	return detailPageNames.get(view)
+}
+
+export function registerModuleDescriptor(indicator, moduleDescriptor) {
+	if (typeof indicator == 'function') {
+		moduleIndicatorRegister.push([indicator, moduleDescriptor])
+	} else if (typeof indicator == 'string') {
+		moduleTypeRegister.set(indicator, moduleDescriptor)
+	}
 }
 
 export function findModuleDescriptorField(module, extractField) {
@@ -37,7 +45,7 @@ export function findModuleDescriptorField(module, extractField) {
 		}
 	}
 
-	return field(genericModuleDescriptor)
+	throw new Error('No module descriptor found');
 }
 
 export function findEventDescriptorField(event, module, field) {

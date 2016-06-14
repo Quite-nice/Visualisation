@@ -29,3 +29,5 @@ twbs:bootstrap
 devian:navigation
 database
 less
+extension-system
+generic-ui

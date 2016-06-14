@@ -3,7 +3,8 @@
  */
 
 import './DetailView.html'
-import {findModuleDescriptorField, getDetailPageName} from '/imports/ui/extensions/registry'
+import { Template } from 'meteor/templating'
+import {findModuleDescriptorField, getDetailPageName} from 'meteor/extension-system'
 
 const template = Template.DetailView;
 
