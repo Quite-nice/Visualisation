@@ -3,9 +3,9 @@
  */
 
 import './BasicPage.html'
-import '/imports/ui/components/menu/menu'
+import '../components/menu/menu'
 
-import { navigation } from '/imports/startup/client/routes'
+import { navigation } from '../routes'
 
 Template.BasicPage.helpers({
     navigation(){

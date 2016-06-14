@@ -9,8 +9,8 @@ import {FlowRouter} from 'meteor/kadira:flow-router'
 
 
 // //TEMPLATES
-import '../../ui/layouts/ModuleDashboard'
-import '../../ui/pages/BasicPage'
+import './layouts/ModuleDashboard'
+import './pages/BasicPage'
 
 // set up all routes in the app
 export const navigation = new Menu();
