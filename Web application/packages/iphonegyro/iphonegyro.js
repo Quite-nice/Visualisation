@@ -1,4 +1,4 @@
-import {EventDescriptor, ModuleDescriptor, registerModuleDescriptor} from 'meteor/extension-system';
+import {EventDescriptor, ModuleDescriptor, registerModuleDescriptor} from 'meteor/visualisation:extension-system';
 import './components/MiniView'
 
 const iPhoneDescriptor = new ModuleDescriptor({

@@ -2,7 +2,7 @@
 import { Tinytest } from "meteor/tinytest";
 
 // Import and rename a variable exported by extension-system.js.
-import { name as packageName } from "meteor/extension-system";
+import { name as packageName } from "meteor/visualisation:extension-system";
 
 // Write your tests here!
 // Here is an example.

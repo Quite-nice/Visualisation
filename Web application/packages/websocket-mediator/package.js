@@ -1,5 +1,5 @@
 Package.describe({
-	name: 'websocket-mediator',
+	name: 'visualisation:websocket-mediator',
 	version: '0.0.1',
 	// Brief, one-line summary of the package.
 	summary: 'Use meteor as a mediator to write messages and modules in the database',
@@ -12,14 +12,14 @@ Package.describe({
 
 Package.onUse(function(api) {
 	api.versionsFrom('1.3.2.4');
-	api.use(['ecmascript', 'mongo', 'database']);
+	api.use(['ecmascript', 'mongo', 'visualisation:database']);
 	api.mainModule('main.js', 'server');
 });
 
 Package.onTest(function(api) {
 	api.use('ecmascript');
 	api.use('tinytest');
-	api.use('websocket-mediator');
+	api.use('visualisation:websocket-mediator');
 	api.mainModule('websocket-mediator-tests.js');
 });
 

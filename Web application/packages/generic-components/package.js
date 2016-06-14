@@ -13,7 +13,7 @@ Package.describe({
 Package.onUse(function(api) {
 	api.versionsFrom('1.3.2.4');
 	api.use(['ecmascript', 'templating', 'less']);
-	api.use(['extension-system', 'database']);
+	api.use(['visualisation:extension-system', 'visualisation:database']);
 	api.mainModule('generic-ui.js', 'client');
 });
 

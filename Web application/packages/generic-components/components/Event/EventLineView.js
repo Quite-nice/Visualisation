@@ -1,5 +1,5 @@
 import './EventLineView.html'
-import {findEventDescriptorField} from 'meteor/extension-system'
+import {findEventDescriptorField} from 'meteor/visualisation:extension-system'
 
 Template.EventLineView.helpers({
 	lineView() {

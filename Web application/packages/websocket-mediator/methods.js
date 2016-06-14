@@ -1,5 +1,5 @@
 import 'meteor/meteor'
-import {Modules, Events} from 'meteor/database'
+import {Modules, Events} from 'meteor/visualisation:database'
 import {mediatorId} from './mediator'
 
 export const moduleIds = Symbol('Module id');

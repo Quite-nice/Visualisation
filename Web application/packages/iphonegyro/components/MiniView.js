@@ -4,7 +4,7 @@
 
 import './MiniView.html'
 import './style.less'
-import {Events} from 'meteor/database'
+import {Events} from 'meteor/visualisation:database'
 import {Template} from 'meteor/templating'
 
 Template.iPhoneGyroView.onCreated(function (){

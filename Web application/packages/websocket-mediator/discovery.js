@@ -1,5 +1,5 @@
 import {mediatorId} from './mediator'
-import {Events} from 'meteor/database'
+import {Events} from 'meteor/visualisation:database'
 
 const os = require('os');
 const url = require('url');

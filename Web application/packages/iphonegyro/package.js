@@ -1,5 +1,5 @@
 Package.describe({
-  name: 'iphonegyro',
+  name: 'visualisation:iphonegyro',
   version: '0.0.1',
   // Brief, one-line summary of the package.
   summary: 'visualize gyro data coming from the iphone',
@@ -13,7 +13,7 @@ Package.describe({
 Package.onUse(function(api) {
   api.versionsFrom('1.3.2.4');
   api.use(['ecmascript', 'templating', 'mongo', 'less']);
-  api.use(['database', 'extension-system']);
+  api.use(['visualisation:database', 'visualisation:extension-system']);
   api.addAssets(['IPhone_6S_Rose_Gold.png'], 'client')
   api.mainModule('iphonegyro.js', 'client');
 });

@@ -26,9 +26,9 @@ johanbrook:publication-collector
 reywood:publish-composite
 twbs:bootstrap
 devian:navigation
-database
 less
-extension-system
-iphonegyro
+visualisation:database
+visualisation:extension-system
+visualisation:iphonegyro
 visualisation:generic-components
 visualisation:core-ui

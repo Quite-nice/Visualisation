@@ -1,5 +1,5 @@
 import { webSocketService } from './discovery'
-import { Events,  Modules } from 'meteor/database'
+import { Events,  Modules } from 'meteor/visualisation:database'
 import './methods'
 
 Modules.upsert({type: 'websocket-mediator'}, {$set: {

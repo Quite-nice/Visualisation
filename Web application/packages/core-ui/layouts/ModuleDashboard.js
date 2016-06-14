@@ -3,9 +3,9 @@
  */
 
 import './ModuleDashboard.html';
-import {findModuleDescriptorField} from 'meteor/extension-system'
+import {findModuleDescriptorField} from 'meteor/visualisation:extension-system'
 
-import {Events, Modules} from 'meteor/database'
+import {Events, Modules} from 'meteor/visualisation:database'
 import {Meteor} from 'meteor/meteor'
 
 const template = Template.ModuleDashboard;

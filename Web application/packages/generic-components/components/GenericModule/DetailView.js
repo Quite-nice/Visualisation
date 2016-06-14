@@ -4,7 +4,7 @@
 
 import './DetailView.html'
 import { Template } from 'meteor/templating'
-import {findModuleDescriptorField, getDetailPageName} from 'meteor/extension-system'
+import {findModuleDescriptorField, getDetailPageName} from 'meteor/visualisation:extension-system'
 
 const template = Template.DetailView;
 

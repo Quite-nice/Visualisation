@@ -3,7 +3,7 @@
  */
 import './MiniView.html'
 
-import {Events} from 'meteor/database'
+import {Events} from 'meteor/visualisation:database'
 import '../ExpandableEventsList/eventList'
 import './StateLabel'
 
