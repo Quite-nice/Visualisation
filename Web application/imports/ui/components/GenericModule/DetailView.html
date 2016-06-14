@@ -1,7 +1,7 @@
 <template name="DetailView">
 	<h2>{{module.name}}</h2>
 	<p>
-		{{> StateLabel}} <span class="label label-default">{{module.subModuleCount}}</span> submodules registered
+		{{> StateLabel state=module.state}} <span class="label label-default">{{module.subModuleCount}}</span> submodules registered
 	</p>
 
 	<ul class="nav nav-tabs">

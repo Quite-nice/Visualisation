@@ -1,5 +1,6 @@
 import './GenericEventLineView.html'
 import moment from 'moment'
+import './StateEvent'
 
 const template = Template.GenericEventLineView
 
