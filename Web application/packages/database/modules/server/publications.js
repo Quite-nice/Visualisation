@@ -1,6 +1,7 @@
 /**
  * Created by Kymer on 1/06/16.
  */
+import 'meteor/reywood:publish-composite'
 import { Meteor } from 'meteor/meteor'
 import { Modules } from '../modules'
 import { Events } from '../../events/events'
