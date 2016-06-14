@@ -42,8 +42,8 @@ export function findModuleDescriptorField(module, extractField) {
 
 export function findEventDescriptorField(event, module, field) {
 	return findModuleDescriptorField(module, function(moduleDescriptor) {
-		if (moduleDescriptor.eventRegistry.types.has(field))
-			return moduleDescriptor.eventRegistry.types.get(field)
+		if (moduleDescriptor.eventRegistry.types.has(event.type))
+			return moduleDescriptor.eventRegistry.types.get(event.type)[field]
 		
 		for (let [indicator, descriptor] of moduleDescriptor.eventRegistry.indicators.reverse()) {
 			if (indicator(event)) return descriptor[field]
