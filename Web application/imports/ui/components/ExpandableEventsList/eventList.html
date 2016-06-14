@@ -1,0 +1,12 @@
+<!--
+    DISCLAIMER:
+        This template assumes an Events cursor or array in the datacontext
+        -> should be called like this: {{> ExpandableEventsList eventsCursor}}
+-->
+<template name="ExpandableEventsList">
+	<ul class="events list-group limitted-height">
+		{{#each event in eventCursor}}
+			{{> ExpandableEventItem event=event module=module}}
+		{{/each}}
+	</ul>
+</template>

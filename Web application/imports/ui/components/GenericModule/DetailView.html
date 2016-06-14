@@ -1,0 +1,18 @@
+<template name="DetailView">
+	<h2>{{module.name}}</h2>
+	<p>
+		{{> StateLabel}} <span class="label label-default">{{module.subModuleCount}}</span> submodules registered
+	</p>
+
+	<ul class="nav nav-tabs">
+		{{#each pages}}
+			<li role="presentation" class="{{#if isSelectedPage this}}active{{/if}}"><a href="#">{{pageName this}}</a></li>
+		{{/each}}
+	</ul>
+
+	{{#if selectedPage}}
+		{{> Template.dynamic template=selectedPage}}
+	{{/if}}
+
+	<hr>
+</template>

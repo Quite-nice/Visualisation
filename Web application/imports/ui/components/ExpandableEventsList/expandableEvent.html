@@ -1,0 +1,10 @@
+<template name="ExpandableEventItem">
+	<li class="list-group-item js-item">
+		{{> EventLineView}}
+	</li>
+	{{#if expand}}
+		<li class="list-group-item info">
+			{{> JsonView object=event}}
+		</li>
+	{{/if}}
+</template>

@@ -1,0 +1,7 @@
+<template name="JsonView">
+	<ul class="json-list">
+		{{#each entries}}
+			{{> Template.dynamic template=entryView}}
+		{{/each}}
+	</ul>
+</template>

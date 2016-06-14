@@ -33,7 +33,7 @@ This is a draft. If you have suggestions on how to improve the schema, please ad
 
 There are some event types that every module will have, regardless of the application. We list them here and provide a visualisation in the GUI, which you can reuse in every application.
 
-- `stateChange`: to indicate that the module's state has changed. These events should have a number as payload:
+- `state`: to indicate that the module's state changed. These events should have a number as payload:
   - `0` if the module is offline
-  - `1` if it is starting up
+  - `1` if it is configuring (on startup for example)
   - `2` if the module is online

@@ -13,6 +13,7 @@ caching-html-compiler@1.0.6
 callback-hook@1.0.8
 check@1.2.1
 coffeescript@1.0.17
+database@0.0.1
 dburles:factory@1.0.0
 ddp@1.2.5
 ddp-client@1.2.7
@@ -38,6 +39,7 @@ jquery@1.11.8
 kadira:blaze-layout@2.3.0
 kadira:flow-router@2.12.1
 launch-screen@1.0.11
+less@2.6.0
 livedata@1.0.18
 logging@1.0.12
 meteor@1.1.14
@@ -84,4 +86,5 @@ underscore@1.0.8
 url@1.0.9
 webapp@1.2.8
 webapp-hashing@1.0.9
+websocket-mediator@0.0.1
 xolvio:cleaner@0.3.1
