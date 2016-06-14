@@ -12,7 +12,7 @@ Package.describe({
 
 Package.onUse(function(api) {
 	api.versionsFrom('1.3.2.4');
-	api.use(['ecmascript', 'mongo', 'visualisation:database']);
+	api.use(['ecmascript', 'mongo', 'visualisation:database@0.0.1']);
 	api.mainModule('main.js', 'server');
 });
 
