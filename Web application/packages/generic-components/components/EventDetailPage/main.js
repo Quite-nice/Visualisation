@@ -3,6 +3,7 @@
  */
 
 import './main.html'
+import './style.css'
 import {Events} from 'meteor/visualisation:database'
 import {ReactiveVar} from 'meteor/reactive-var'
 
