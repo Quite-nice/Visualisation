@@ -23,3 +23,7 @@ Package.onTest(function(api) {
 	api.use('generic-ui');
 	api.mainModule('generic-ui-tests.js');
 });
+
+Npm.depends({
+	moment: "2.8.3"
+});

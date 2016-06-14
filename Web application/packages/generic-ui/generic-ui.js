@@ -2,8 +2,9 @@ import {EventDescriptor, ModuleDescriptor, registerModuleDescriptor} from 'meteo
 
 import './components/GenericModule/DetailView'
 import './components/GenericModule/MiniView'
-import './components/Event/GenericEventLineView'
 import './components/JsonView/JsonView'
+import './components/Event/GenericEventLineView'
+import './components/Event/StateEvent'
 import './components/EventDetailPage/main'
 
 export const genericModuleDescriptor = new ModuleDescriptor({
@@ -22,6 +23,6 @@ const stateEventDescriptor = new EventDescriptor({
 })
 
 genericModuleDescriptor.registerEvent(function() {return true}, genericEventDescriptor)
-// genericModuleDescriptor.registerEvent('state', stateEventDescriptor)
+genericModuleDescriptor.registerEvent('state', stateEventDescriptor)
 
 registerModuleDescriptor(function() {return true}, genericModuleDescriptor)
