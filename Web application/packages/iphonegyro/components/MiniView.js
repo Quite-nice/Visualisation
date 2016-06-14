@@ -3,7 +3,7 @@
  */
 
 import './MiniView.html'
-import './style.css'
+import './style.less'
 import {Events} from 'meteor/database'
 import {Template} from 'meteor/templating'
 

@@ -12,9 +12,9 @@ Package.describe({
 
 Package.onUse(function(api) {
   api.versionsFrom('1.3.2.4');
-  api.use(['ecmascript', 'templating', 'mongo']);
+  api.use(['ecmascript', 'templating', 'mongo', 'less']);
   api.use(['database', 'extension-system']);
-  api.addAssets('IPhone_6S_Rose_Gold.png', 'client')
+  api.addAssets(['IPhone_6S_Rose_Gold.png'], 'client')
   api.mainModule('iphonegyro.js', 'client');
 });
 
