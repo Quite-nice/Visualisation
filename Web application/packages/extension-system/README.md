@@ -58,7 +58,7 @@ When you have created your custom templates you still need to couple them to cer
 First describe your custom module using a `ModuleDescriptor`
 
 ```javascript
-import {ModuleDescriptor} from 'meteor/visualisation:extension-system';
+import {ModuleDescriptor} from 'meteor/visualisation:extension-system'
 
 export const iphoneModuleDescriptor = new ModuleDescriptor({
 	miniView: 'TheTemplateNameForYourMiniView',
@@ -70,7 +70,7 @@ export const iphoneModuleDescriptor = new ModuleDescriptor({
 Then describe the events for this module using the `EventDescriptor`
 
 ```javascript
-import {EventDescriptor} from 'meteor/visualisation:extension-system';
+import {EventDescriptor} from 'meteor/visualisation:extension-system'
 
 const incomingCallDescriptor = new EventDescriptor({
 	detailView: 'IncomingCallDetialView',
@@ -81,7 +81,7 @@ const incomingCallDescriptor = new EventDescriptor({
 When you have described your module and its events, register them in the registry. A module descriptor can be coupled to all modules of a certain `type` by calling `registerModuleDescriptor(moduleType, descriptor)`. Here is an example:
 
 ```javascript
-import {registerModuleDescriptor} from 'meteor/visualisation:extension-system';
+import {registerModuleDescriptor} from 'meteor/visualisation:extension-system'
 
 registerModuleDescriptor('iPhone', iphoneModuleDescriptor)
 ```
