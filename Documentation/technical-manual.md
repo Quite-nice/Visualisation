@@ -1,5 +1,13 @@
 # Technical manual
 
+## Application architecture
+
+The application architecture consists of three main parts:
+
+- A **database**, this is the core of the visualisation system
+- A **mediator** is responsible to log modules and event into the database
+- A **webserver** that provides a visualisation of data in the database![ArchitectureGraphConcept](images/ArchitectureGraphConcept.jpg)
+
 ## Database structure
 
 This is a draft. If you have suggestions on how to improve the schema, please add some comments.
