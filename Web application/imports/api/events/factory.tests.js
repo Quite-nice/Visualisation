@@ -7,6 +7,7 @@ import faker from 'faker'
 
 Factory.define('event', Events, {
 	senderId: () => Factory.get('branchesModule'),
+	receiverId: () => Factory.get('branchesModule'),
 	date: () => new Date(),
 	type: 'commit',
 	payload: {
