@@ -13,7 +13,7 @@ Package.describe({
 Package.onUse(function(api) {
   api.versionsFrom('1.3.3');
   api.use(['ecmascript', 'templating']);
-  api.use(['devian:navigation@0.0.3', 'kadira:blaze-layout@2.3.0', 'kadira:flow-router@2.12.1']);
+  api.use(['devian:navigation@0.0.3', 'kadira:blaze-layout@2.3.0', 'kadira:flow-router@2.12.1', 'visualisation:extension-system@0.0.1', 'visualisation:database@0.0.1']);
   api.mainModule('core-ui.js', 'client');
 });
 
