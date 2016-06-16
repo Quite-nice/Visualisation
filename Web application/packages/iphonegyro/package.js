@@ -1,6 +1,6 @@
 Package.describe({
   name: 'visualisation:iphonegyro',
-  version: '0.0.1',
+  version: '0.0.2',
   // Brief, one-line summary of the package.
   summary: 'visualize gyro data coming from the iphone',
   // URL to the Git repository containing the source code for this package.
@@ -15,7 +15,8 @@ Package.onUse(function(api) {
   api.use(['ecmascript', 'templating', 'mongo', 'less']);
   api.use(['visualisation:database@0.0.1', 'visualisation:extension-system@0.0.1']);
   api.addAssets(['IPhone_6S_Rose_Gold.png'], 'client')
-  api.mainModule('iphonegyro.js', 'client');
+  api.mainModule('client.js', 'client');
+  api.mainModule('server.js', 'server');
 });
 
 Package.onTest(function(api) {

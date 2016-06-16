@@ -11,9 +11,11 @@
         </div>
 
 	    <div class="panel-body perspective">
-		    <div class="iphoneRepresentation">
+		    {{#with iPhone}}
+		    <div class="iphoneRepresentation" style="transform: rotateX({{gyro.[0]}}rad) rotateY({{gyro.[1]}}rad) rotateZ({{gyro.[2]}}rad)">
 			    <div class="front"><img src="/packages/visualisation_iphonegyro/IPhone_6S_Rose_Gold.png" alt="iPhone 6s Rose gold"></div>
 		    </div>
+			{{/with}}
         </div>
     </div>
 </template>
