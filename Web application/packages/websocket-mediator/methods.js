@@ -9,12 +9,6 @@ Meteor.onConnection(function(connection) {
 
 	connection.onClose(function() {
 		if (connection[moduleIds].length > 0) {
-			// Events.insert({
-			// 	senderId: connection[moduleIds],
-			// 	type: 'stateChange',
-			// 	payload: 0,
-			// 	date: new Date(),
-			// })
 			Modules.remove({_id: {$in: connection[moduleIds]}})
 		}
 	})
