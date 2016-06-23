@@ -84,7 +84,8 @@ visualisation:core-ui@0.0.1
 visualisation:database@0.0.1
 visualisation:extension-system@0.0.1
 visualisation:generic-components@0.0.1
-visualisation:iphonegyro@0.0.1
+visualisation:iphonegyro@0.0.2
+visualisation:websocket-mediator@0.0.1
 webapp@1.2.9
 webapp-hashing@1.0.9
 xolvio:cleaner@0.3.1

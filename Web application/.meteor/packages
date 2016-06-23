@@ -29,3 +29,4 @@ devian:navigation
 less
 visualisation:core
 visualisation:iphonegyro
+visualisation:websocket-mediator
