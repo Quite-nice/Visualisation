@@ -3,26 +3,20 @@ import {Events} from 'meteor/visualisation:database'
 
 const os = require('os');
 const url = require('url');
-const bonjour = require('bonjour')();
+const mdns = require('mdns');
 
 const rootURL = url.parse(process.env['ROOT_URL']);
 
-export const webSocketService = bonjour.publish({
-	name: 'Visualisation webserver',
-	port: rootURL.port,
-	type: 'websocket',
-	txt: {
+ad = mdns.createAdvertisement(mdns.tcp('websocket'), parseInt(rootURL.port), {
+	txtRecord: {
 		url: `ws://${os.hostname()}:${rootURL.port}${rootURL.pathname}websocket`
 	}
 });
+ad.start();
 
-webSocketService.on('up', Meteor.bindEnvironment(function() {
-	Events.insert({
-		senderId: mediatorId,
-		type: 'state',
-		payload: 2,
-		date: new Date()
-	})
-}));
-
-webSocketService.start();
+Events.insert({
+	senderId: mediatorId,
+	type: 'state',
+	payload: 2,
+	date: new Date()
+})

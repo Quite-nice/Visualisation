@@ -1,6 +1,6 @@
 Package.describe({
 	name: 'visualisation:websocket-mediator',
-	version: '0.0.1',
+	version: '0.0.2',
 	// Brief, one-line summary of the package.
 	summary: 'Use meteor as a mediator to write messages and modules in the database',
 	// URL to the Git repository containing the source code for this package.
@@ -24,5 +24,5 @@ Package.onTest(function(api) {
 });
 
 Npm.depends({
-	bonjour: "3.5.0"
+	mdns: "2.3.3"
 });
