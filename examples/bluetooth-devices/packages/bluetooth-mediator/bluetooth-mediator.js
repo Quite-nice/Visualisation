@@ -26,7 +26,6 @@ noble.on('discover', Meteor.bindEnvironment(function(peripheral) {
 		deviceTimeouts.set(peripheral.id, Meteor.setTimeout);
 
 		const advertisement = peripheral.advertisement;
-		console.log(advertisement.serviceUuids)
 		Modules.insert({
 			_id: peripheral.id,
 			type: advertisement.serviceUuids.indexOf('cdd49cb83d1a11e6ac619e71128cae77')==-1 ? 'bluetooth-device' : 'iPhone',
