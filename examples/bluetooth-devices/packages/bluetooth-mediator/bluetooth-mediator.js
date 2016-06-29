@@ -1,33 +1,51 @@
-import {Modules, Events} from 'meteor/visualisation:database';
+﻿﻿import {Modules, Events} from 'meteor/visualisation:database';
 
 const noble = require('noble');
+
+var bluetoothModuleId;
+const bluetoothCursor = Modules.find({type: 'bluetooth'})
+if (bluetoothCursor.count() > 0) {
+	bluetoothModuleId = bluetoothCursor.fetch()[0]._id
+} else {
+	bluetoothModuleId = Modules.insert({type: 'bluetooth', name: 'Bluetooth LE'})
+}
 
 noble.on('stateChange', Meteor.bindEnvironment(function(state) {
 	if (state === 'poweredOn') {
 		noble.startScanning([], true);
+		Events.insert({
+			senderId: bluetoothModuleId,
+			type: 'state',
+			payload: 2,
+			date: new Date()
+		})
 	} else {
 		noble.stopScanning();
 		removeAllModules()
+		Events.insert({
+			senderId: bluetoothModuleId,
+			type: 'state',
+			payload: 0,
+			date: new Date()
+		})
 	}
 }));
 
-const deviceTimeouts = new Map();
-const timeout = 2000;
+noble.on('scanStop', function() {
+	if (noble.state === 'poweredOn') noble.startScanning([], true);
+});
+
+const devices = new Set()
 
 removeAllModules();
 noble.on('discover', Meteor.bindEnvironment(function(peripheral) {
-	if (deviceTimeouts.has(peripheral.id)) {
-		Meteor.clearTimeout(deviceTimeouts.get(peripheral.id));
-		deviceTimeouts.set(peripheral.id, Meteor.setTimeout(() => deleteTimeout(peripheral.id), timeout));
-		Modules.update(peripheral.id, {
-			$set: {name: peripheral.advertisement.localName}
-		})
-	} else {
-		deviceTimeouts.set(peripheral.id, Meteor.setTimeout(() => deleteTimeout(peripheral.id), timeout));
-
+	if (!devices.has(peripheral.id)) {
+		devices.add(peripheral.id);
 		const advertisement = peripheral.advertisement;
+
 		Modules.insert({
 			_id: peripheral.id,
+			parentId: bluetoothModuleId,
 			type: advertisement.serviceUuids.indexOf('cdd49cb83d1a11e6ac619e71128cae77')==-1 ? 'bluetooth-device' : 'iPhone',
 			name: advertisement.localName
 		});
@@ -53,15 +71,13 @@ noble.on('discover', Meteor.bindEnvironment(function(peripheral) {
 					}))
 				}
 			}))
+			peripheral.once('disconnect', Meteor.bindEnvironment(function() {
+				devices.delete(peripheral.id);
+				Modules.remove(peripheral.id);
+			}))
 		}))
 	}
 }));
-
-function deleteTimeout(deviceID) {
-	Meteor.clearTimeout(deviceTimeouts.get(deviceID));
-	deviceTimeouts.delete(deviceID);
-	Modules.remove(deviceID)
-}
 
 function removeAllModules() {
 	Modules.remove({type: {$in: ['bluetooth-device', 'iPhone']}})
