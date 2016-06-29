@@ -26,7 +26,6 @@ noble.on('discover', Meteor.bindEnvironment(function(peripheral) {
 		deviceTimeouts.set(peripheral.id, Meteor.setTimeout);
 
 		const advertisement = peripheral.advertisement;
-		console.log('ad', advertisement);
 		Modules.insert({
 			_id: peripheral.id,
 			type: 'iPhone',
@@ -48,7 +47,6 @@ noble.on('discover', Meteor.bindEnvironment(function(peripheral) {
 									payload: [data.readInt32LE(0)/100000000, data.readInt32LE(4)/100000000, data.readInt32LE(8)/100000000],
 									date: new Date()
 								};
-								console.log(event);
 								Events.insert(event);
 							}))
 						}
