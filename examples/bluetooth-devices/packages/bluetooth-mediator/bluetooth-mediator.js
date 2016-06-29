@@ -23,7 +23,7 @@ noble.on('discover', Meteor.bindEnvironment(function(peripheral) {
 			$set: {name: peripheral.advertisement.localName}
 		})
 	} else {
-		deviceTimeouts.set(peripheral.id, Meteor.setTimeout);
+		deviceTimeouts.set(peripheral.id, Meteor.setTimeout(() => deleteTimeout(peripheral.id), timeout));
 
 		const advertisement = peripheral.advertisement;
 		Modules.insert({

@@ -71,7 +71,7 @@ twbs:bootstrap@3.3.6
 ui@1.0.11
 underscore@1.0.9
 url@1.0.10
-visualisation:bluetooth-mediator@0.0.1
+visualisation:bluetooth-mediator@0.0.2
 visualisation:core@0.0.3
 visualisation:core-ui@0.0.3
 visualisation:database@0.0.1

@@ -1,6 +1,6 @@
 Package.describe({
   name: 'visualisation:bluetooth-mediator',
-  version: '0.0.1',
+  version: '0.0.3',
   // Brief, one-line summary of the package.
   summary: 'Adds discovered bluetooth devices',
   // URL to the Git repository containing the source code for this package.
