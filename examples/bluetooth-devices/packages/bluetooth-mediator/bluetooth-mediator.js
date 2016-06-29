@@ -13,6 +13,7 @@ if (bluetoothCursor.count() > 0) {
 noble.on('stateChange', Meteor.bindEnvironment(function(state) {
 	if (state === 'poweredOn') {
 		noble.startScanning(['cdd49cb83d1a11e6ac619e71128cae77'], true);
+		console.log('bluetooth on');
 		Events.insert({
 			senderId: bluetoothModuleId,
 			type: 'state',
@@ -22,6 +23,7 @@ noble.on('stateChange', Meteor.bindEnvironment(function(state) {
 	} else {
 		noble.stopScanning();
 		removeAllModules()
+		console.log('bluetooth off');
 		Events.insert({
 			senderId: bluetoothModuleId,
 			type: 'state',
