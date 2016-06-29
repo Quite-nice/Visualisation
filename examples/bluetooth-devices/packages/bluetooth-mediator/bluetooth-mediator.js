@@ -12,7 +12,7 @@ if (bluetoothCursor.count() > 0) {
 
 noble.on('stateChange', Meteor.bindEnvironment(function(state) {
 	if (state === 'poweredOn') {
-		noble.startScanning([], true);
+		noble.startScanning(['cdd49cb83d1a11e6ac619e71128cae77'], true);
 		Events.insert({
 			senderId: bluetoothModuleId,
 			type: 'state',
@@ -32,7 +32,7 @@ noble.on('stateChange', Meteor.bindEnvironment(function(state) {
 }));
 
 noble.on('scanStop', function() {
-	if (noble.state === 'poweredOn') noble.startScanning([], true);
+	if (noble.state === 'poweredOn') noble.startScanning(['cdd49cb83d1a11e6ac619e71128cae77'], true);
 });
 
 const devices = new Set()
@@ -43,14 +43,15 @@ noble.on('discover', Meteor.bindEnvironment(function(peripheral) {
 		devices.add(peripheral.id);
 		const advertisement = peripheral.advertisement;
 
-		Modules.insert({
-			_id: peripheral.id,
-			parentId: bluetoothModuleId,
-			type: advertisement.serviceUuids.indexOf('cdd49cb83d1a11e6ac619e71128cae77')==-1 ? 'bluetooth-device' : 'iPhone',
-			name: advertisement.localName
-		});
-
 		peripheral.connect(Meteor.bindEnvironment(function(error) {
+
+			Modules.insert({
+				_id: peripheral.id,
+				parentId: bluetoothModuleId,
+				type: advertisement.serviceUuids.indexOf('cdd49cb83d1a11e6ac619e71128cae77')==-1 ? 'bluetooth-device' : 'iPhone',
+				name: advertisement.localName
+			});
+
 			peripheral.discoverServices(['cdd49cb83d1a11e6ac619e71128cae77'], Meteor.bindEnvironment(function(error, services) {
 				for (service of services) {
 					service.discoverCharacteristics(['b8d2aa983d1b11e6ac619e71128cae77'], Meteor.bindEnvironment(function(error, characteristics) {
