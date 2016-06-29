@@ -4,6 +4,7 @@
 
 import './DetailView.html'
 import { Template } from 'meteor/templating'
+import { FlowRouter } from 'meteor/kadira:flow-router'
 import {findModuleDescriptorField, getDetailPageName} from 'meteor/visualisation:extension-system'
 
 const template = Template.DetailView;
