@@ -17,7 +17,7 @@ const timeout = 2000;
 removeAllModules();
 noble.on('discover', Meteor.bindEnvironment(function(peripheral) {
 	if (deviceTimeouts.has(peripheral.id)) {
-		clearTimeout(deviceTimeouts.get(peripheral.id));
+		Meteor.clearTimeout(deviceTimeouts.get(peripheral.id));
 		deviceTimeouts.set(peripheral.id, Meteor.setTimeout(() => deleteTimeout(peripheral.id), timeout));
 		Modules.update(peripheral.id, {
 			$set: {name: peripheral.advertisement.localName}
