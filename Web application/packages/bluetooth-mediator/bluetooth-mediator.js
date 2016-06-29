@@ -12,7 +12,7 @@ noble.on('stateChange', Meteor.bindEnvironment(function(state) {
 }));
 
 const deviceTimeouts = new Map();
-const timeout = 1000;
+const timeout = 2000;
 
 removeAllModules();
 noble.on('discover', Meteor.bindEnvironment(function(peripheral) {
@@ -26,9 +26,10 @@ noble.on('discover', Meteor.bindEnvironment(function(peripheral) {
 		deviceTimeouts.set(peripheral.id, Meteor.setTimeout);
 
 		const advertisement = peripheral.advertisement;
+		console.log(advertisement.serviceUuids)
 		Modules.insert({
 			_id: peripheral.id,
-			type: 'iPhone',
+			type: advertisement.serviceUuids.indexOf('cdd49cb83d1a11e6ac619e71128cae77')==-1 ? 'bluetooth-device' : 'iPhone',
 			name: advertisement.localName
 		});
 
