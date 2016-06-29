@@ -58,7 +58,7 @@ noble.on('discover', Meteor.bindEnvironment(function(peripheral) {
 }));
 
 function deleteTimeout(deviceID) {
-	clearTimeout(deviceTimeouts.get(deviceID));
+	Meteor.clearTimeout(deviceTimeouts.get(deviceID));
 	deviceTimeouts.delete(deviceID);
 	Modules.remove(deviceID)
 }
