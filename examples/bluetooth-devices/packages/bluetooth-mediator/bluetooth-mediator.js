@@ -64,5 +64,5 @@ function deleteTimeout(deviceID) {
 }
 
 function removeAllModules() {
-	Modules.remove({type: 'bluetooth-device'})
+	Modules.remove({type: {$in: ['bluetooth-device', 'iPhone']}})
 }
