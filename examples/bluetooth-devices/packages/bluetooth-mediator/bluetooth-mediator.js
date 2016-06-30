@@ -48,7 +48,7 @@ noble.on('discover', Meteor.bindEnvironment(function(peripheral) {
 			Modules.insert({
 				_id: peripheral.id,
 				parentId: bluetoothModuleId,
-				type: advertisement.serviceUuids.indexOf('cdd49cb83d1a11e6ac619e71128cae77')==-1 ? 'bluetooth-device' : 'iPhone',
+				type: 'iPhone',
 				name: advertisement.localName
 			});
 
