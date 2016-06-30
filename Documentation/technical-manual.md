@@ -48,7 +48,7 @@ The base architecture of the visualisation system always comes back to two entit
 
 ### Modules
 
-Modules can have to different representations: a `miniView` and a `detailView`. In the following image you see the `detailView` of the Websocket mediator. Below the view of this module, you see the `miniView`'s of all its submodules.
+Modules can have two different representations: a `miniView` and a `detailView`. In the following image you see the `detailView` of the Websocket mediator. Below the view of this module, you see the `miniView`'s of all its submodules.
 
 ![Main layout annotations](../Web application/packages/extension-system/Documentation/Main layout annotations.png)
 
