@@ -1,2 +1,10 @@
 .idea
 tmp
+examples/bluetooth-devices/packages/websocket-mediator
+examples/bluetooth-devices/packages/mock-github
+examples/bluetooth-devices/packages/iphonegyro
+examples/bluetooth-devices/packages/generic-components
+examples/bluetooth-devices/packages/extension-system
+examples/bluetooth-devices/packages/database
+examples/bluetooth-devices/packages/core-ui
+examples/bluetooth-devices/packages/core

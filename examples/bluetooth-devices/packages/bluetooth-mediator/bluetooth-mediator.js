@@ -57,7 +57,7 @@ noble.on('discover', Meteor.bindEnvironment(function(peripheral) {
 					service.discoverCharacteristics(['b8d2aa983d1b11e6ac619e71128cae77'], Meteor.bindEnvironment(function(error, characteristics) {
 						for (characteristic of characteristics) {
 							characteristic.subscribe(function(error) {
-								console.log('error', error)
+								if (error) console.log('error', error)
 							});
 							characteristic.on('data', Meteor.bindEnvironment(function(data) {
 								const event = {

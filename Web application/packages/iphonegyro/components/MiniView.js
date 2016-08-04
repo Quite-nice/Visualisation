@@ -10,7 +10,6 @@ import '../publication'
 
 Template.iPhoneGyroView.onCreated(function (){
 	const template = this;
-	console.log('gyro v0.0.2')
 	this.autorun(function() {
 		const module = Template.currentData().module
 		if (module != undefined) {

@@ -71,12 +71,12 @@ twbs:bootstrap@3.3.6
 ui@1.0.11
 underscore@1.0.9
 url@1.0.10
-visualisation:bluetooth-mediator@0.1.0
+visualisation:bluetooth-mediator@0.1.1
 visualisation:core@0.0.4
 visualisation:core-ui@0.0.3
 visualisation:database@0.0.1
 visualisation:extension-system@0.0.1
 visualisation:generic-components@0.0.2
-visualisation:iphonegyro@0.0.2
+visualisation:iphonegyro@0.0.3
 webapp@1.2.9_1
 webapp-hashing@1.0.9
