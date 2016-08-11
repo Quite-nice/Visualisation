@@ -38,7 +38,8 @@ export function findModuleDescriptorField(module, extractField) {
 		if (result != undefined) return result
 	}
 
-	for (let [indicator, descriptor] of moduleIndicatorRegister.reverse()) {
+	for (let i = moduleIndicatorRegister.length-1; i>=0; --i) {
+		let [indicator, descriptor] = moduleIndicatorRegister[i]
 		if (indicator(module)) {
 			let result = field(descriptor)
 			if (result != undefined) return result
