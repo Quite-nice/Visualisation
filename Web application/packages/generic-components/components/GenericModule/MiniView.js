@@ -20,7 +20,7 @@ Template.GenericModuleContainer.onCreated(function (){
 
 Template.GenericModuleContainer.helpers({
 	sentEvents(){
-		return Events.find({senderId: this.module._id}, {sort: {date: -1}})
+		return Events.find({senderId: this.module._id}, {sort: {date: 1}})
 	}
 })
 
