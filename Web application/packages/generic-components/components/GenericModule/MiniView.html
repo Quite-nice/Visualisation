@@ -1,23 +1,27 @@
 <!--
     DISCLAIMER:
         This template assumes a Module document in the datacontext
-        -> should be called like this: {{> GenericModule data}}
+        -> should be called like this: {{> GenericModule module=data}}
 -->
+<template name="GenericModuleContainer">
+	{{> GenericModule module=module sentEvents=sentEvents}}
+</template>
+
 <template name="GenericModule">
-    <div class="panel panel-default">
-        <div class="panel-heading">
-	        {{> StateLabel state=module.state class="pull-right"}}
-            <h3 class="panel-title"><a href="/module/{{module._id}}">{{module.name}}</a></h3>
-        </div>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			{{> StateLabel state=module.state class="pull-right"}}
+			<h3 class="panel-title"><a href="/module/{{module._id}}">{{module.name}}</a></h3>
+		</div>
 
-	    <div class="panel-body">
-            <p>
-	            <span class="label label-default">{{module.subModuleCount}}</span>
-	            submodule{{#unless single module.subModuleCount}}s{{/unless}}
-            </p>
-            <h6>Sent events</h6>
+		<div class="panel-body">
+			<p>
+				<span class="label label-default">{{module.subModuleCount}}</span>
+				submodule{{#unless single module.subModuleCount}}s{{/unless}}
+			</p>
+			<h6>Sent events</h6>
 
-            {{> ExpandableEventsList eventCursor=sentEvents module=module}}
-        </div>
-    </div>
+			{{> ExpandableEventsList eventCursor=sentEvents module=module}}
+		</div>
+	</div>
 </template>
