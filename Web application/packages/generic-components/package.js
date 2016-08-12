@@ -13,7 +13,7 @@ Package.describe({
 Package.onUse(function(api) {
 	api.versionsFrom('1.3.2.4');
 	api.use(['ecmascript', 'templating', 'less', 'reactive-var']);
-	api.use(['visualisation:extension-system@0.0.1', 'visualisation:database@0.0.1', 'kadira:flow-router@2.12.1']);
+	api.use(['visualisation:extension-system@0.0.2', 'visualisation:database@0.0.1', 'kadira:flow-router@2.12.1']);
 	api.mainModule('generic-ui.js', 'client');
 });
 

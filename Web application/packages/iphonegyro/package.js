@@ -13,8 +13,8 @@ Package.describe({
 Package.onUse(function(api) {
   api.versionsFrom('1.3.2.4');
   api.use(['ecmascript', 'templating', 'mongo', 'less']);
-  api.use(['visualisation:database@0.0.1', 'visualisation:extension-system@0.0.1']);
-  api.addAssets(['IPhone_6S_Rose_Gold.png'], 'client')
+  api.use(['visualisation:database@0.0.1', 'visualisation:extension-system@0.0.2']);
+  api.addAssets(['IPhone_6S_Rose_Gold.png'], 'client');
   api.mainModule('client.js', 'client');
   api.mainModule('server.js', 'server');
 });
