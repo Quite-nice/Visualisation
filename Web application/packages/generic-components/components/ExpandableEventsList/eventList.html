@@ -9,7 +9,5 @@
 			{{> ExpandableEventItem event=event module=module}}
 		{{/each}}
 	</ul>
-	{{#unless stickToBottom}}
-		<button class="btn btn-default js-stick">Stick to bottom</button>
-	{{/unless}}
+		<button class="btn {{#if stickToBottom}}btn-primary{{else}}btn-default{{/if}} js-stick">Stick to bottom</button>
 </template>
