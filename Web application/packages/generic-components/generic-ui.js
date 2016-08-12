@@ -9,7 +9,7 @@ import './components/EventDetailPage/main'
 import './style.less'
 
 export const genericModuleDescriptor = new ModuleDescriptor({
-	miniView: 'GenericModule',
+	miniView: 'GenericModuleContainer',
 	detailView: 'DetailView',
 	detailPageViews: ['EventDetailPage']
 })

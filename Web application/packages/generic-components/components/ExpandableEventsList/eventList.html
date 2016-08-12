@@ -4,9 +4,12 @@
         -> should be called like this: {{> ExpandableEventsList eventsCursor}}
 -->
 <template name="ExpandableEventsList">
-	<ul class="events list-group limitted-height">
+	<ul class="events list-group limitted-height js-expandableEventsList">
 		{{#each event in eventCursor}}
 			{{> ExpandableEventItem event=event module=module}}
 		{{/each}}
 	</ul>
+	{{#unless stickToBottom}}
+		<button class="btn btn-default js-stick">Stick to bottom</button>
+	{{/unless}}
 </template>
