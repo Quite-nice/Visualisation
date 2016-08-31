@@ -1,4 +1,4 @@
-import {EventDescriptor, ModuleDescriptor, registerModuleDescriptor} from 'meteor/visualisation:extension-system';
+import {EventDescriptor, ModuleDescriptor, registerModuleDescriptor, registerDetailPageName} from 'meteor/visualisation:extension-system';
 
 import './components/GenericModule/DetailView'
 import './components/GenericModule/MiniView'
@@ -7,6 +7,8 @@ import './components/Event/GenericEventLineView'
 import './components/Event/StateEvent'
 import './components/EventDetailPage/main'
 import './style.less'
+
+registerDetailPageName('Events', 'EventDetailPageContainer');
 
 export const genericModuleDescriptor = new ModuleDescriptor({
 	miniView: 'GenericModuleContainer',
