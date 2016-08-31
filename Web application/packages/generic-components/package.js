@@ -1,6 +1,6 @@
 Package.describe({
 	name: 'visualisation:generic-components',
-	version: '0.0.3',
+	version: '0.0.4',
 	// Brief, one-line summary of the package.
 	summary: 'Generic module and event templates',
 	// URL to the Git repository containing the source code for this package.

@@ -1,25 +1,26 @@
 <!--
     DISCLAIMER:
-        This template assumes an Events cursor or array in the datacontext
-        -> should be called like this: {{> ExpandableEventsList eventsCursor=events}}
+        This template assumes an Events cursor or array in eventsCursor and module in module
+        -> should be called like this: {{> ExpandableEventsList eventsCursor=events module=theModule}}
 -->
 <template name="EventDetailPage">
 	<p></p>
 
 	<div class="row">
 		<div class="col-md-3">
-			<ul class="events list-group limitted-height">
+			<ul class="events list-group limitted-height js-eventsList">
 				{{#each eventsCursor}}
 					<li class="list-group-item js-item{{#if selected this}} active{{/if}}">
 						{{> EventLineView event=this module=../module}}
 					</li>
 				{{/each}}
 			</ul>
+			<button class="btn {{#if stickToBottom}}btn-primary{{else}}btn-default{{/if}} js-stick">Stick to bottom</button>
 		</div>
 		<div class="col-md-9">
 			<div class="well">
-				{{#if selectedEvent}}
-					{{> JsonView object=selectedEvent}}
+				{{#if selectedEvent eventsCursor}}
+					{{> JsonView object=(selectedEvent eventsCursor)}}
 				{{else}}
 					Nothing selected
 				{{/if}}
@@ -27,4 +28,8 @@
 		</div>
 	</div>
 
+</template>
+
+<template name="EventDetailPageContainer">
+	{{> EventDetailPage eventsCursor=eventsCursor module=module}}
 </template>

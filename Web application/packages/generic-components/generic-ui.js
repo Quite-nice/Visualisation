@@ -13,7 +13,7 @@ registerDetailPageName('Events', 'EventDetailPageContainer');
 export const genericModuleDescriptor = new ModuleDescriptor({
 	miniView: 'GenericModuleContainer',
 	detailView: 'DetailView',
-	detailPageViews: ['EventDetailPage']
+	detailPageViews: ['EventDetailPageContainer']
 })
 
 const genericEventDescriptor = new EventDescriptor({
