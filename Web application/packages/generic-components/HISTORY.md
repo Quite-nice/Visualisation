@@ -1,3 +1,7 @@
+# v0.0.5
+
+- Use visualisation:extension-system v0.0.3
+
 # v0.0.4
 
 - GenericModule is now split up into GenericModule and GenericModuleContainer

@@ -1,6 +1,6 @@
 Package.describe({
   name: 'visualisation:core-ui',
-  version: '0.0.4',
+  version: '0.0.5',
   // Brief, one-line summary of the package.
   summary: 'Basic page layout with a menu bar',
   // URL to the Git repository containing the source code for this package.
@@ -17,7 +17,7 @@ Package.onUse(function(api) {
     'devian:navigation@0.0.3',
     'kadira:blaze-layout@2.3.0',
     'kadira:flow-router@2.12.1',
-    'visualisation:extension-system@0.0.2',
+    'visualisation:extension-system@0.0.3',
     'visualisation:database@0.0.1',
     'twbs:bootstrap@3.3.6'
   ]);

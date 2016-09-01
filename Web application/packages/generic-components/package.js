@@ -1,6 +1,6 @@
 Package.describe({
 	name: 'visualisation:generic-components',
-	version: '0.0.4',
+	version: '0.0.5',
 	// Brief, one-line summary of the package.
 	summary: 'Generic module and event templates',
 	// URL to the Git repository containing the source code for this package.
@@ -13,7 +13,7 @@ Package.describe({
 Package.onUse(function(api) {
 	api.versionsFrom('1.3.2.4');
 	api.use(['ecmascript', 'templating', 'less', 'reactive-var']);
-	api.use(['visualisation:extension-system@0.0.2', 'visualisation:database@0.0.1', 'kadira:flow-router@2.12.1']);
+	api.use(['visualisation:extension-system@0.0.3', 'visualisation:database@0.0.1', 'kadira:flow-router@2.12.1']);
 	api.mainModule('generic-ui.js', 'client');
 });
 
