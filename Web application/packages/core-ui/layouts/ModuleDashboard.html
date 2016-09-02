@@ -17,9 +17,8 @@
 		{{> DetailView module=module}}
 	{{/if}}
 
-	<div class="row">
+	<div class="row wrapping-fix">
 		{{#each subModule in subModules}}
-			<!-- must be replaceable by a not generic GenericModule! -->
 			<div class="col-sm-4">
 				{{> Template.dynamic template=(miniView subModule) data=(miniViewData subModule)}}
 			</div>
