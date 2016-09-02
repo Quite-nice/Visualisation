@@ -3,6 +3,7 @@
  */
 
 import './ModuleDashboard.html';
+import './wrapping-fix.css'
 import {findModuleDescriptorField} from 'meteor/visualisation:extension-system'
 
 import {Events, Modules} from 'meteor/visualisation:database'

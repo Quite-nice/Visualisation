@@ -1,3 +1,7 @@
+# v0.0.7
+
+- include wrapping-fix file
+
 # v0.0.6
 
 - Remove HTML comments
