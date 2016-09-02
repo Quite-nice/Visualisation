@@ -13,7 +13,7 @@ Package.describe({
 Package.onUse(function(api) {
   api.versionsFrom('1.3.3');
   api.use('ecmascript');
-  api.use(['visualisation:core-ui@0.0.6', 'visualisation:generic-components@0.0.6']);
+  api.use(['visualisation:core-ui@0.0.7', 'visualisation:generic-components@0.0.6']);
   api.mainModule('core.js');
 });
 
