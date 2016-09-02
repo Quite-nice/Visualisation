@@ -8,20 +8,36 @@
 </template>
 
 <template name="GenericModule">
+	{{#ModuleMiniView state=module.state id=module._id name=module.name}}
+		<p>
+			<span class="label label-default">{{module.subModuleCount}}</span>
+			submodule{{#unless single module.subModuleCount}}s{{/unless}}
+		</p>
+		<h6>Sent events</h6>
+
+		{{> ExpandableEventsList eventCursor=sentEvents module=module}}
+	{{/ModuleMiniView}}
+</template>
+
+<template name="ModuleMiniView">
 	<div class="panel panel-default">
-		<div class="panel-heading">
-			{{> StateLabel state=module.state class="pull-right"}}
-			<h3 class="panel-title"><a href="/module/{{module._id}}">{{module.name}}</a></h3>
-		</div>
+		{{> MiniViewHeading state=state moduleId=id name=name}}
 
-		<div class="panel-body">
-			<p>
-				<span class="label label-default">{{module.subModuleCount}}</span>
-				submodule{{#unless single module.subModuleCount}}s{{/unless}}
-			</p>
-			<h6>Sent events</h6>
+		{{#MiniViewBody}}
+			{{> Template.contentBlock}}
+		{{/MiniViewBody}}
+	</div>
+</template>
 
-			{{> ExpandableEventsList eventCursor=sentEvents module=module}}
-		</div>
+<template name="MiniViewHeading">
+	<div class="panel-heading">
+		{{> StateLabel state=state class="pull-right"}}
+		<h3 class="panel-title"><a href="/module/{{moduleId}}">{{name}}</a></h3>
+	</div>
+</template>
+
+<template name="MiniViewBody">
+	<div class="panel-body">
+		{{> Template.contentBlock}}
 	</div>
 </template>

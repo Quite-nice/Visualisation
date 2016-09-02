@@ -1,3 +1,10 @@
+# v.0.0.6
+
+- Compose generic module from reusable components:
+  - MiniViewHeading
+  - MiniViewBody
+  - ModuleMiniView
+
 # v0.0.5
 
 - Use visualisation:extension-system v0.0.3
