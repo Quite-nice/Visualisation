@@ -75,7 +75,7 @@ visualisation:bluetooth-mediator@0.1.1
 visualisation:core@0.0.4
 visualisation:core-ui@0.0.3
 visualisation:database@0.0.1
-visualisation:extension-system@0.0.1
+visualisation:extension-system@0.0.2
 visualisation:generic-components@0.0.2
 visualisation:iphonegyro@0.0.3
 webapp@1.2.9_1

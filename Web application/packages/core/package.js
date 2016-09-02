@@ -1,6 +1,6 @@
 Package.describe({
   name: 'visualisation:core',
-  version: '0.0.7',
+  version: '0.0.8',
   // Brief, one-line summary of the package.
   summary: 'Flexible visualisation system',
   // URL to the Git repository containing the source code for this package.
@@ -13,7 +13,7 @@ Package.describe({
 Package.onUse(function(api) {
   api.versionsFrom('1.3.3');
   api.use('ecmascript');
-  api.use(['visualisation:core-ui@0.0.5', 'visualisation:generic-components@0.0.6']);
+  api.use(['visualisation:core-ui@0.0.6', 'visualisation:generic-components@0.0.6']);
   api.mainModule('core.js');
 });
 
