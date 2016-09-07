@@ -1,0 +1,26 @@
+.wrapping-fix .col-sm-4:nth-child(3n+1) {
+	clear: both;
+}
+
+.col-sm-4>.panel-default>.panel-heading {
+	transition-property: background-color, border-color, color;
+	transition-duration: 300ms;
+	transition-timing-function: ease-in-out;
+	transition-delay: 200ms;
+}
+
+.col-sm-4>.panel-default {
+	transition: border-color 300ms ease-in-out 200ms;
+}
+
+.col-sm-4.highlight>.panel-default>.panel-heading {
+	background-color: #337ab7;
+	border-color: #337ab7;
+	color: #fff;
+	transition-delay: 0ms;
+}
+
+.col-sm-4.highlight>.panel-default {
+	border-color: #337ab7;
+	transition-delay: 0ms;
+}

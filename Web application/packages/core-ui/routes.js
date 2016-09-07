@@ -20,7 +20,7 @@ navigation.route('/', {
 	action() {
 		BlazeLayout.render('BasicPage', {content: 'ModuleDashboard'})
 	}
-})
+});
 
 FlowRouter.route('/module/:moduleId', {
 	name: 'Module',

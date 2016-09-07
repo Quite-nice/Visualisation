@@ -19,9 +19,7 @@
 
 	<div class="row wrapping-fix">
 		{{#each subModule in subModules}}
-			<div class="col-sm-4">
-				{{> Template.dynamic template=(miniView subModule) data=(miniViewData subModule)}}
-			</div>
+			{{> SubModuleColumn module=subModule}}
 		{{else}}
 			<div class="col-sm-12">
 				<div class="alert alert-info">
@@ -29,5 +27,11 @@
 				</div>
 			</div>
 		{{/each}}
+	</div>
+</template>
+
+<template name="SubModuleColumn">
+	<div class="col-sm-4 {{#if highlighted}}highlight{{/if}}">
+		{{> Template.dynamic template=miniView data=miniViewData}}
 	</div>
 </template>

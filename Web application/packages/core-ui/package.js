@@ -1,6 +1,6 @@
 Package.describe({
   name: 'visualisation:core-ui',
-  version: '0.0.7',
+  version: '0.0.8',
   // Brief, one-line summary of the package.
   summary: 'Basic page layout with a menu bar',
   // URL to the Git repository containing the source code for this package.
@@ -12,7 +12,7 @@ Package.describe({
 
 Package.onUse(function(api) {
   api.versionsFrom('1.3.3');
-  api.use(['ecmascript', 'templating']);
+  api.use(['ecmascript', 'templating', 'reactive-var']);
   api.use([
     'devian:navigation@0.0.3',
     'kadira:blaze-layout@2.3.0',
