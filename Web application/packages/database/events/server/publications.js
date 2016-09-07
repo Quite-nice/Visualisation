@@ -22,9 +22,9 @@ Meteor.publish('eventsSentByModule', (id) => {
 
 Meteor.publish('eventsWithinTimeSpan', (dateFrom, dateTo) => {
 	return Events.find({
-		timestamp: {
+		date: {
 			$gte: dateFrom,
 			$lt: dateTo
 		}
-	}, {sort: {timestamp: -1}})
+	}, {sort: {date: -1}})
 })

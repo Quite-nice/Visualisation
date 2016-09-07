@@ -1,6 +1,6 @@
 Package.describe({
   name: 'visualisation:database',
-  version: '0.0.1',
+  version: '0.0.2',
   // Brief, one-line summary of the package.
   summary: 'Modules and events collections for the visualisation platform',
   // URL to the Git repository containing the source code for this package.
