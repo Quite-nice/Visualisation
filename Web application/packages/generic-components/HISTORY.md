@@ -1,4 +1,8 @@
-# v.0.0.6
+# v0.0.7
+
+- use new database package
+
+# v0.0.6
 
 - Compose generic module from reusable components:
   - MiniViewHeading
