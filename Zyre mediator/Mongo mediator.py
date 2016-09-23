@@ -22,8 +22,8 @@ def rethinkdb_writer(ctx, pipe):
     n = Pyre(configuration['zyreMediator']['name'])
     n.set_interface('usb0')
     n.set_header('TYPE', configuration['zyreMediator']['type'])
-    n.join(group_name)
     n.start()
+    n.join(group_name)
 
     # Zyre setup
     poller = zmq.Poller()
@@ -93,7 +93,7 @@ def rethinkdb_writer(ctx, pipe):
                     parent_module_id = headers['parentId']
                 except KeyError:
                     print("The header doesn't contain the module's parent id")
-                    parent_module_id = None
+                    parent_module_id = str(n.uuid())
 
                 # creates an entry with all known information about the robot
                 # in the database if the robot is not in the database
@@ -101,7 +101,7 @@ def rethinkdb_writer(ctx, pipe):
                     '_id': str(peer_uid),
                     'name': peer_name,
                     'type': module_type,
-                    'parent': parent_module_id
+                    'parentId': parent_module_id
                 })
 
                 module_name_to_uid_map[peer_name] = str(peer_uid)
