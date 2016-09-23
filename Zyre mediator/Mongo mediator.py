@@ -35,6 +35,20 @@ def rethinkdb_writer(ctx, pipe):
 
     meteor = mongo_connection['meteor']
 
+    # Cleanup older mediator modules
+    def delete_module_with(id):
+        for childModule in meteor['modules'].find({'parentId': id}, ['_id']):
+            delete_module_with(childModule['_id'])
+        meteor['modules'].remove({'_id': id})
+
+    old_modules = meteor['modules'].find({
+        'type': configuration['zyreMediator']['type']
+    }, ['_id'])
+
+    for old_module in old_modules:
+        print 'cleanup old module'
+        delete_module_with(old_module['_id'])
+
     # Add this module to the database
     meteor['modules'].insert([{
         '_id': str(n.uuid()),
@@ -49,14 +63,14 @@ def rethinkdb_writer(ctx, pipe):
         'payload': 2
     }
 
-    def logMessage(message_to_log):
+    def log_message(message_to_log):
         message_to_log['timestamp'] = datetime.datetime.utcnow()
         meteor['events'].insert_one(message_to_log)
         del message_to_log['timestamp']
         del message_to_log['_id']
 
     n.shout(group_name, json.dumps(ready_message))
-    logMessage(ready_message)
+    log_message(ready_message)
 
     module_name_to_uid_map = {}
 
@@ -122,7 +136,7 @@ def rethinkdb_writer(ctx, pipe):
                 # print data
 
                 data['senderId'] = str(peer_uid)
-                logMessage(data)
+                log_message(data)
 
             elif msg_type.decode('utf-8') == 'WHISPER':
                 # write message to database
@@ -131,9 +145,12 @@ def rethinkdb_writer(ctx, pipe):
                 except:
                     print 'Invalid JSON string'
 
-                logMessage(data)
+                log_message(data)
 
-    meteor['modules'].remove({'_id': str(n.uuid())})
+    try:
+        meteor['modules'].remove({'_id': str(n.uuid())})
+    except:
+        print 'unable to cleanup'
     n.stop()
 
 
