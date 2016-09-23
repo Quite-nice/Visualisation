@@ -1,4 +1,3 @@
-
 import datetime
 from pymongo import MongoClient
 
@@ -12,7 +11,6 @@ import logging
 
 
 def rethinkdb_writer(ctx, pipe):
-
     # Database setup
     with open('../configuration.json') as data_file:
         configuration = json.load(data_file)
@@ -89,9 +87,6 @@ def rethinkdb_writer(ctx, pipe):
             msg_type = msg_frame.pop(0)
             peer_uid = uuid.UUID(bytes=msg_frame.pop(0))
             peer_name = msg_frame.pop(0)
-            print('NODE_MSG TYPE: %s' % msg_type)
-            print('NODE_MSG PEER: %s' % str(peer_uid))
-            print('NODE_MSG NAME: %s' % peer_name)
 
             if msg_type.decode('utf-8') == 'ENTER':
 
@@ -107,6 +102,9 @@ def rethinkdb_writer(ctx, pipe):
                     parent_module_id = headers['parentId']
                 except KeyError:
                     print("The header doesn't contain the module's parent id")
+                    parent_module_id = str(n.uuid())
+
+                if parent_module_id == 'none':
                     parent_module_id = str(n.uuid())
 
                 # creates an entry with all known information about the robot
@@ -148,7 +146,7 @@ def rethinkdb_writer(ctx, pipe):
                 log_message(data)
 
     try:
-        meteor['modules'].remove({'_id': str(n.uuid())})
+        delete_module_with(str(n.uuid()))
     except:
         print 'unable to cleanup'
     n.stop()
