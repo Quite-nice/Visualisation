@@ -8,6 +8,6 @@
 	"zyreMediator": {
 		"type": "databaseMediator",
 		"name": "Mongo mediator",
-		"group": "logging"
+		"group": "PNP_LINE"
 	}
 }
