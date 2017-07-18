@@ -6,10 +6,21 @@
 		<dd>{{idFrom module._id}}</dd>
 
 		{{#if module.header}}
-		<dt>Header</dt>
-		<dd>
-			{{> JsonView object=module.header}}
-		</dd>
+			<dt>Header</dt>
+			<dd>
+				{{> JsonView object=module.header}}
+			</dd>
+		{{/if}}
+
+		{{#if module.groups}}
+			<dt>Groups</dt>
+			<dd>
+				<ul>
+					{{#each module.groups}}
+						<li>{{this}}</li>
+					{{/each}}
+				</ul>
+			</dd>
 		{{/if}}
 	</dl>
 

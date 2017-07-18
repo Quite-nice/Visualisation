@@ -6,10 +6,23 @@ import { zreModuleType as zreNodeModuleType, zreNodeModuleIdPrefix } from './met
 
 Modules.remove({type: zreNodeModuleType})
 
+/**
+ * @type {Map<string, {flush: ?function, promise: Promise}>}
+ */
+const connectionWaitList = new Map()
+
 zreObserver.on('connect', Meteor.bindEnvironment((id, name, header) => {
+	const connection = connectionWaitList.get(id)
+	if (connection === undefined) {
+		connectionWaitList.set(id, { promise: Promise.resolve(id) })
+	} else {
+		connection.flush()
+	}
+
 	console.log('zre node connected', id, name, header)
 
 	const visualisationID = visualisationIdFor(id)
+
 
 	Modules.upsert(visualisationID, {
 		$set: {
@@ -36,6 +49,34 @@ zreObserver.on('shout', Meteor.bindEnvironment((peerId, name, message, group) =>
 		payload: message,
 		date: new Date()
 	})
+}))
+
+zreObserver.on('join', Meteor.bindEnvironment((peerId, name, group) => {
+	let connection = connectionWaitList.get(peerId)
+	if (connection === undefined) {
+		connection = {}
+		connection.promise = new Promise(resolve => connection.flush = resolve)
+		connectionWaitList.set(peerId, connection)
+	}
+	connection.promise.then(() => {
+		console.log(peerId, name, 'joins', group)
+		Modules.update(visualisationIdFor(peerId), {
+			$addToSet: {
+				groups: group
+			}
+		})
+	})
+
+	zreObserver.join(group)
+}))
+
+zreObserver.on('leave', Meteor.bindEnvironment((peerId, name, group) => {
+	console.log(peerId, name, 'leaves', group)
+	console.log(visualisationIdFor(peerId), group, Modules.update(visualisationIdFor(peerId), {
+		$pullAll: {
+			groups: [group]
+		}
+	}))
 }))
 
 zreObserver.on('disconnect', Meteor.bindEnvironment((id, name) => {
