@@ -23,7 +23,7 @@ container.onCreated(function() {
 
 container.helpers({
 	eventsCursor: function() {
-		return Events.find({senderId: this.module._id}, {sort: {date: -1}})
+		return Events.find({senderId: this.module._id}, {sort: {date: 1}})
 	}
 })
 

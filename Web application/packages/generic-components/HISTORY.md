@@ -1,3 +1,7 @@
+# v0.0.8
+
+- Sort events from old to new in the EventDetailPage
+
 # v0.0.7
 
 - use new database package
