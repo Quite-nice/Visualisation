@@ -1,0 +1,16 @@
+svg .node {
+    stroke: #fff;
+    stroke-width: 1.5px;
+    fill: orange;
+    r: 12px
+}
+
+svg .message {
+    r: 7px;
+    fill: rgb(142, 0, 255);
+}
+
+svg .link {
+    stroke: #999;
+    stroke-opacity: .6;
+}

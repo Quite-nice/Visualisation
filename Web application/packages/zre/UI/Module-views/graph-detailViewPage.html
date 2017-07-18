@@ -1,0 +1,5 @@
+<template name="SubmodulesForceGraphDetailViewPage">
+	{{#ForceGraph nodeCursor=allModules messageCursor=allEvents mouseOverNode=setSelection mouseOutNode=clearSelection clickNode=sendEvent}}
+		<svg style="max-height: 30vh"></svg>
+	{{/ForceGraph}}
+</template>
