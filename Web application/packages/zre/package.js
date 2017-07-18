@@ -18,7 +18,7 @@ Package.onUse(function(api) {
 	api.use('visualisation:extension-system');
 
 	api.mainModule('zre.js', 'server');
-	api.mainModule('UI extensions/main.js', 'client')
+	api.mainModule('UI/main.js', 'client')
 });
 
 Package.onTest(function(api) {

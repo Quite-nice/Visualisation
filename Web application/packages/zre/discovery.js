@@ -5,8 +5,7 @@ import Zyre from 'zyre.js'
 
 const zreObserver = new Zyre({name: 'MeteorJS visualisation'})
 
-import { zreModuleType as zreNodeModuleType } from './meta'
-const zreNodeModuleIdPrefix = 'ZRE-node:'
+import { zreModuleType as zreNodeModuleType, zreNodeModuleIdPrefix } from './meta'
 
 Modules.remove({type: zreNodeModuleType})
 

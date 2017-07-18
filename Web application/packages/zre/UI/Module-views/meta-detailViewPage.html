@@ -1,0 +1,16 @@
+<template name="ZreMetaDetailViewPage">
+	<p></p>
+
+	<dl>
+		<dt>Peer id</dt>
+		<dd>{{idFrom module._id}}</dd>
+
+		{{#if module.header}}
+		<dt>Header</dt>
+		<dd>
+			{{> JsonView object=module.header}}
+		</dd>
+		{{/if}}
+	</dl>
+
+</template>

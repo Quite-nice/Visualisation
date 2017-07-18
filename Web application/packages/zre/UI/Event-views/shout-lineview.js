@@ -1,5 +1,5 @@
 import { Template } from 'meteor/templating'
-import './shout lineview.html'
+import './shout-lineview.html'
 
 Template.ZreShoutLineView.helpers({
 	trim(string) {
