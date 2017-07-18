@@ -1,10 +1,7 @@
 import { Meteor } from 'meteor/meteor'
 import { Events, Modules } from 'meteor/visualisation:database'
 import rootModule from './rootModule'
-import Zyre from 'zyre.js'
-
-const zreObserver = new Zyre({name: 'MeteorJS visualisation'})
-
+import zreObserver from './zre-peer'
 import { zreModuleType as zreNodeModuleType, zreNodeModuleIdPrefix } from './meta'
 
 Modules.remove({type: zreNodeModuleType})
@@ -53,8 +50,6 @@ zreObserver.on('disconnect', Meteor.bindEnvironment((id, name) => {
 }))
 
 zreObserver.start(function() {
-	zreObserver.join('visualisation')
-
 	console.log('zre observer started')
 	Events.insert({
 		senderId: rootModule._id,
@@ -62,6 +57,8 @@ zreObserver.start(function() {
 		payload: 2,
 		date: new Date()
 	})
+
+	zreObserver.join('visualisation')
 })
 
 function visualisationIdFor(zreID) {
