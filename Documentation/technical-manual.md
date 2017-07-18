@@ -50,7 +50,7 @@ The base architecture of the visualisation system always comes back to two entit
 
 Modules can have two different representations: a `miniView` and a `detailView`. In the following image you see the `detailView` of the Websocket mediator. Below the view of this module, you see the `miniView`'s of all its submodules.
 
-![Main layout annotations](../Web application/packages/extension-system/Documentation/Main layout annotations.png)
+![Main layout annotations](../Web%20application/packages/extension-system/Documentation/Main%20layout%20annotations.png)
 
 #### Detail view pages
 
@@ -60,7 +60,7 @@ Inside the detail view you can see a tab called 'events'. This is what we call a
 
 The events follow a similar system, but here, the views are called: `lineView` and `detailView`. 
 
-![Events overview](../Web application/packages/extension-system/Documentation/Events overview.png)
+![Events overview](../Web%20application/packages/extension-system/Documentation/Events%20overview.png)
 
 ## Creating your own views
 
