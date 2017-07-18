@@ -14,7 +14,8 @@ Package.onUse(function(api) {
 	api.versionsFrom('1.6-beta.9');
 	api.use('ecmascript');
 	api.use('visualisation:database');
-	api.mainModule('zre.js');
+
+	api.mainModule('zre.js', 'server');
 });
 
 Package.onTest(function(api) {
