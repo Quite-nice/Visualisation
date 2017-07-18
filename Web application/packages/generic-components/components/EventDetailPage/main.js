@@ -30,6 +30,10 @@ container.helpers({
 template.onCreated(function() {
 	this.selection = new ReactiveVar(null);
 	this.stickToBottom = new ReactiveVar(true);
+	this.autorun(() => {
+		const selectionHook = Template.currentData().selectionHook;
+		if (typeof selectionHook == 'function') selectionHook(this.selection);
+	})
 })
 
 template.helpers({
