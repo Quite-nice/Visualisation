@@ -32,6 +32,15 @@ zreObserver.on('connect', Meteor.bindEnvironment((id, name, header) => {
 	})
 }))
 
+zreObserver.on('shout', Meteor.bindEnvironment((peerId, name, message, group) => {
+	Events.insert({
+		senderId: visualisationIdFor(peerId),
+		type: 'shout',
+		payload: message,
+		date: new Date()
+	})
+}))
+
 zreObserver.on('disconnect', Meteor.bindEnvironment((id, name) => {
 	const visualisationID = visualisationIdFor(id)
 
@@ -44,6 +53,8 @@ zreObserver.on('disconnect', Meteor.bindEnvironment((id, name) => {
 }))
 
 zreObserver.start(function() {
+	zreObserver.join('visualisation')
+
 	console.log('zre observer started')
 	Events.insert({
 		senderId: rootModule._id,
