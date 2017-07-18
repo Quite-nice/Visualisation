@@ -36,6 +36,7 @@ zreObserver.on('shout', Meteor.bindEnvironment((peerId, name, message, group) =>
 	Events.insert({
 		senderId: visualisationIdFor(peerId),
 		type: 'shout',
+		group,
 		payload: message,
 		date: new Date()
 	})
