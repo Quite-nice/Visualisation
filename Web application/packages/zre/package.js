@@ -2,7 +2,7 @@ Package.describe({
   name: 'visualisation:zre',
   version: '0.0.1',
   // Brief, one-line summary of the package.
-  summary: '',
+  summary: 'visualise ZRE network (requires meteor 1.6)',
   // URL to the Git repository containing the source code for this package.
   git: '',
   // By default, Meteor will default to using README.md for documentation.
@@ -11,7 +11,7 @@ Package.describe({
 });
 
 Package.onUse(function(api) {
-  api.versionsFrom('1.5.1');
+  api.versionsFrom('1.6-beta.9');
   api.use('ecmascript');
   api.mainModule('zre.js');
 });
@@ -21,4 +21,8 @@ Package.onTest(function(api) {
   api.use('tinytest');
   api.use('visualisation:zre');
   api.mainModule('zre-tests.js');
+});
+
+Npm.depends({
+	'zyre.js': '1.1.0'
 });
