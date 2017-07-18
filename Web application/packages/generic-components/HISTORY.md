@@ -1,3 +1,7 @@
+# v0.0.9
+
+- Publish timestamp formatting function
+
 # v0.0.8
 
 - Sort events from old to new in the EventDetailPage
