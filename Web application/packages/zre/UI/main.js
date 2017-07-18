@@ -2,9 +2,12 @@ import {ModuleDescriptor, EventDescriptor, registerModuleDescriptor, registerDet
 
 import './Event-views/shout-lineview'
 import './Module-views/whisper-detailViewPage'
+import './Module-views/shout-detailViewPage'
 import './Module-views/meta-detailViewPage'
-import { zreModuleType } from '../meta'
+import { zreModuleType, rootModuleType } from '../meta'
 
+registerDetailPageName('Whisper', 'ZreWhisperDetailViewPage')
+registerDetailPageName('Module information', 'ZreMetaDetailViewPage')
 const zreModuleDescriptor = new ModuleDescriptor({
 	detailPageViews: ['EventDetailPageContainer', 'ZreWhisperDetailViewPage', 'ZreMetaDetailViewPage']
 })
@@ -16,5 +19,10 @@ const shoutEventDescriptor = new EventDescriptor({
 registerModuleDescriptor(zreModuleType, zreModuleDescriptor)
 zreModuleDescriptor.registerEvent('shout', shoutEventDescriptor)
 
-registerDetailPageName('Whisper', 'ZreWhisperDetailViewPage')
-registerDetailPageName('Module information', 'ZreMetaDetailViewPage')
+registerDetailPageName('Shout', 'ZreShoutDetailViewPage')
+const rootModuleDescriptor = new ModuleDescriptor({
+	detailPageViews: ['EventDetailPageContainer', 'ZreShoutDetailViewPage']
+})
+
+registerModuleDescriptor(rootModuleType, rootModuleDescriptor)
+rootModuleDescriptor.registerEvent('shout', shoutEventDescriptor)

@@ -5,7 +5,7 @@
 import { Meteor } from 'meteor/meteor'
 import { Events } from 'meteor/visualisation:database'
 import rootModule from './rootModule'
-import {zreNodeModuleIdPrefix, whisperMethodName} from './meta'
+import {zreNodeModuleIdPrefix, whisperMethodName, shoutMethodName} from './meta'
 import zrePeer from './zre-peer'
 
 Meteor.methods({
@@ -15,6 +15,17 @@ Meteor.methods({
 		Events.insert({
 			senderId: rootModule._id,
 			type: 'whisper',
+			payload: message,
+			date: new Date()
+		})
+	},
+
+	[shoutMethodName](group, message) {
+		zrePeer.shout(group, message)
+		Events.insert({
+			senderId: rootModule._id,
+			type: 'shout',
+			group,
 			payload: message,
 			date: new Date()
 		})
