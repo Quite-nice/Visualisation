@@ -1,6 +1,6 @@
 import { Modules } from 'meteor/visualisation:database'
 
-const type = 'ZRE network observer'
+import { rootModuleType as type } from './meta'
 
 Modules.upsert({type}, {$set: {
 	parentId: null,

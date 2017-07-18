@@ -13,9 +13,12 @@ Package.describe({
 Package.onUse(function(api) {
 	api.versionsFrom('1.6-beta.9');
 	api.use('ecmascript');
+	api.use('templating');
 	api.use('visualisation:database@0.0.2');
+	api.use('visualisation:extension-system');
 
 	api.mainModule('zre.js', 'server');
+	api.mainModule('UI extensions/main.js', 'client')
 });
 
 Package.onTest(function(api) {
