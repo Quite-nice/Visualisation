@@ -41,6 +41,15 @@ zreObserver.on('connect', Meteor.bindEnvironment((id, name, header) => {
 	})
 }))
 
+zreObserver.on('whisper', Meteor.bindEnvironment((peerId, name, message) => {
+	Events.insert({
+		senderId: visualisationIdFor(peerId),
+		type: 'whisper',
+		payload: message,
+		date: new Date()
+	})
+}))
+
 zreObserver.on('shout', Meteor.bindEnvironment((peerId, name, message, group) => {
 	Events.insert({
 		senderId: visualisationIdFor(peerId),
@@ -60,7 +69,17 @@ zreObserver.on('join', Meteor.bindEnvironment((peerId, name, group) => {
 	}
 	connection.promise.then(() => {
 		console.log(peerId, name, 'joins', group)
-		Modules.update(visualisationIdFor(peerId), {
+
+		const visualisationId = visualisationIdFor(peerId)
+
+		Events.insert({
+			senderId: visualisationId,
+			type: 'join',
+			payload: group,
+			date: new Date()
+		})
+
+		Modules.update(visualisationId, {
 			$addToSet: {
 				groups: group
 			}
@@ -71,14 +90,13 @@ zreObserver.on('join', Meteor.bindEnvironment((peerId, name, group) => {
 		}
 	})
 }))
-
 zreObserver.on('leave', Meteor.bindEnvironment((peerId, name, group) => {
 	console.log(peerId, name, 'leaves', group)
-	console.log(visualisationIdFor(peerId), group, Modules.update(visualisationIdFor(peerId), {
+	Modules.update(visualisationIdFor(peerId), {
 		$pullAll: {
 			groups: [group]
 		}
-	}))
+	})
 }))
 
 zreObserver.on('disconnect', Meteor.bindEnvironment((id, name) => {
