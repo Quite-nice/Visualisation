@@ -1,6 +1,6 @@
 Package.describe({
 	name: 'visualisation:zre',
-	version: '1.0.0',
+	version: '1.0.1',
 	// Brief, one-line summary of the package.
 	summary: 'visualise ZRE network (requires meteor 1.6)',
 	// URL to the Git repository containing the source code for this package.
@@ -15,7 +15,7 @@ Package.onUse(function(api) {
 	api.use('ecmascript');
 	api.use('templating@1.3.2');
 	api.use('visualisation:database@0.0.2');
-	api.use('visualisation:extension-system@0.0.3');
+	api.use('visualisation:extension-system@0.0.4');
 	api.use('devian:forcegraph@0.0.5');
 
 	api.mainModule('zre.js', 'server');
