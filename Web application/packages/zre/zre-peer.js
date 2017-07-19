@@ -1,5 +1,5 @@
 import Zyre from 'zyre.js'
 
-const peer = new Zyre({name: 'MeteorJS visualisation'})
+const peer = new Zyre({name: 'MeteorJSvisualisation'})
 
 export default peer

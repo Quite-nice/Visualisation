@@ -65,7 +65,8 @@ zreObserver.on('join', Meteor.bindEnvironment((peerId, name, group) => {
 				groups: group
 			}
 		})
-		if (!zreObserver.getGroups().hasOwnProperty(group)) {
+		if (zreObserver.getGroup(group) === undefined || !zreObserver.getGroup(group).hasOwnProperty(zreObserver.getIdentity())) {
+			console.log('Gui node is joining', group)
 			zreObserver.join(group)
 		}
 	})
@@ -82,6 +83,8 @@ zreObserver.on('leave', Meteor.bindEnvironment((peerId, name, group) => {
 
 zreObserver.on('disconnect', Meteor.bindEnvironment((id, name) => {
 	const visualisationID = visualisationIdFor(id)
+
+	connectionWaitList.delete(id)
 
 	Events.insert({
 		senderId: visualisationID,
