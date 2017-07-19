@@ -65,9 +65,10 @@ zreObserver.on('join', Meteor.bindEnvironment((peerId, name, group) => {
 				groups: group
 			}
 		})
+		if (!zreObserver.getGroups().hasOwnProperty(group)) {
+			zreObserver.join(group)
+		}
 	})
-
-	zreObserver.join(group)
 }))
 
 zreObserver.on('leave', Meteor.bindEnvironment((peerId, name, group) => {
