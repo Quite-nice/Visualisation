@@ -10,7 +10,7 @@ The base architecture of the visualisation system always comes back to two entit
 
 Modules can have to different representations: a `miniView` and a `detailView`. In the following image you see the `detailView` of the Websocket mediator. Below the view of this module, you see the `miniView`'s of all its submodules.
 
-![Main layout annotations](Documentation/Main layout annotations.png)
+![Main layout annotations](Documentation/Main%20layout%20annotations.png)
 
 #### Detail view pages
 
@@ -18,7 +18,7 @@ Inside the detail view you can see a tab called 'events'. This is what we call a
 
 ### Events
 
-The events follow a similar system, but here, the views are called: `lineView` and `detailView`. ![Events overview](Documentation/Events overview.png)
+The events follow a similar system, but here, the views are called: `lineView` and `detailView`. ![Events overview](Documentation/Events%20overview.png)
 
 ## Creating your own views
 
@@ -55,6 +55,10 @@ The event views will be included with a data context like
 
 When you have created your custom templates you still need to couple them to certain modules or events.
 
+### Descriptors
+
+#### Modules
+
 First describe your custom module using a `ModuleDescriptor`
 
 ```javascript
@@ -63,9 +67,19 @@ import {ModuleDescriptor} from 'meteor/visualisation:extension-system'
 export const iphoneModuleDescriptor = new ModuleDescriptor({
 	miniView: 'TheTemplateNameForYourMiniView',
 	detailView: 'TheTemplateNameForYourDetailView',
-	detailPageViews: ['ACustomDetailPage', 'AnotherDetailPage']
+	detailPageViews: ['ACustomDetailPageTemplate', 'AnotherDetailPageTemplate']
 })
 ```
+
+**Custom detail pages**
+
+When creating custom detail pages, register a tab title for them using:
+
+```
+registerDetailPageName('My custom detail page', 'ACustomDetailPageTemplate')
+```
+
+#### Events
 
 Then describe the events for this module using the `EventDescriptor`
 
@@ -77,6 +91,10 @@ const incomingCallDescriptor = new EventDescriptor({
 	lineView: 'IncomingCallLineView'
 })
 ```
+
+### Registration of descriptors
+
+#### Registration based on type
 
 When you have described your module and its events, register them in the registry. A module descriptor can be coupled to all modules of a certain `type` by calling `registerModuleDescriptor(moduleType, descriptor)`. Here is an example:
 
@@ -91,3 +109,15 @@ The only thing that is left now, is registering the event descriptor for a certa
 ```javascript
 iphoneModuleDescriptor.registerEvent('incomingCall', incomingCallDescriptor)
 ```
+
+#### Advanced registration method
+
+It is also possible to define a custom function that determines if your descriptor has to be used for a given module. You register using `registerModuleDescriptor(customFunction, descriptor)`
+
+- `customFunction` is a function that takes a module as argument and returns a boolean indicating whether to use `descriptor` for the given module or not. Example:
+
+  - ```javascript
+    function (module) {
+      return module.header.moduleType == 'MySpecialModule'
+    }
+    ```

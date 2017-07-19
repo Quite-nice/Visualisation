@@ -1,6 +1,6 @@
 Package.describe({
 	name: 'visualisation:extension-system',
-	version: '0.0.3',
+	version: '0.0.4',
 	// Brief, one-line summary of the package.
 	summary: 'Provides a way to customize the UI',
 	// URL to the Git repository containing the source code for this package.

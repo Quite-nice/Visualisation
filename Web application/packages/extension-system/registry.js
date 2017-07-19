@@ -2,7 +2,6 @@ export {EventDescriptor} from './EventDescriptor'
 export {ModuleDescriptor} from './ModuleDescriptor'
 
 // Template registers
-const moduleTypeRegister = new Map();
 const moduleIndicatorRegister = [];
 const detailPageNames = new Map()
 
@@ -18,7 +17,7 @@ export function registerModuleDescriptor(indicator, moduleDescriptor) {
 	if (typeof indicator == 'function') {
 		moduleIndicatorRegister.push([indicator, moduleDescriptor])
 	} else if (typeof indicator == 'string') {
-		moduleTypeRegister.set(indicator, moduleDescriptor)
+		moduleIndicatorRegister.push([module => module.type === indicator, moduleDescriptor])
 	}
 }
 
@@ -29,11 +28,6 @@ export function findModuleDescriptorField(module, extractField) {
 		field = moduleDescriptor => moduleDescriptor[extractField];
 	} else {
 		field = extractField
-	}
-	if (moduleTypeRegister.has(module.type)) {
-		let descriptor = moduleTypeRegister.get(module.type)
-		let result = field(descriptor)
-		if (result != undefined) return result
 	}
 
 	for (let i = moduleIndicatorRegister.length-1; i>=0; --i) {
