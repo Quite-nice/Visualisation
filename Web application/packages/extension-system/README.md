@@ -75,7 +75,8 @@ export const iphoneModuleDescriptor = new ModuleDescriptor({
 
 When creating custom detail pages, register a tab title for them using:
 
-```
+```javascript
+import {registerDetailPageName} from 'meteor/visualisation:extension-system'
 registerDetailPageName('My custom detail page', 'ACustomDetailPageTemplate')
 ```
 
