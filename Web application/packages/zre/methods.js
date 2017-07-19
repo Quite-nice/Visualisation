@@ -11,23 +11,34 @@ import zrePeer from './zre-peer'
 Meteor.methods({
 	[whisperMethodName](moduleId, message) {
 		const peerId = moduleId.slice(zreNodeModuleIdPrefix.length)
-		zrePeer.whisper(peerId, message)
+		const payload = serialise(message)
+		zrePeer.whisper(peerId, payload)
 		Events.insert({
 			senderId: rootModule._id,
 			type: 'whisper',
-			payload: message,
+			payload,
 			date: new Date()
 		})
 	},
 
 	[shoutMethodName](group, message) {
-		zrePeer.shout(group, message)
+		const payload = serialise(message)
+		zrePeer.shout(group, payload)
 		Events.insert({
 			senderId: rootModule._id,
 			type: 'shout',
 			group,
-			payload: message,
+			payload,
 			date: new Date()
 		})
 	}
 })
+
+/**
+ * @param message {string|Object}
+ * @returns {String}
+ */
+function serialise(message) {
+	if (message instanceof String) return message
+	else return JSON.stringify(message)
+}

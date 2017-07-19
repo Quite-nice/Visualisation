@@ -6,6 +6,7 @@ import './Module-views/shout-detailViewPage'
 import './Module-views/meta-detailViewPage'
 import './Module-views/graph-detailViewPage'
 import { zreModuleType, rootModuleType } from '../meta'
+export * from '../meta'
 
 registerDetailPageName('Whisper', 'ZreWhisperDetailViewPage')
 registerDetailPageName('Module information', 'ZreMetaDetailViewPage')

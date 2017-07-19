@@ -1,6 +1,6 @@
 Package.describe({
 	name: 'visualisation:zre',
-	version: '1.0.1',
+	version: '1.0.2',
 	// Brief, one-line summary of the package.
 	summary: 'visualise ZRE network (requires meteor 1.6)',
 	// URL to the Git repository containing the source code for this package.
