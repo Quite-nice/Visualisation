@@ -5,7 +5,7 @@
 import { Meteor } from 'meteor/meteor'
 import { Events } from 'meteor/visualisation:database'
 import rootModule from './rootModule'
-import {zreNodeModuleIdPrefix, whisperMethodName, shoutMethodName} from './meta'
+import {zreNodeModuleIdPrefix, whisperMethodName, shoutMethodName, restartMethodName} from './meta'
 import zrePeer from './zre-peer'
 
 Meteor.methods({
@@ -30,6 +30,12 @@ Meteor.methods({
 			group,
 			payload,
 			date: new Date()
+		})
+	},
+
+	[restartMethodName]() {
+		zrePeer.stop().then(() => {
+			zrePeer.start()
 		})
 	}
 })
