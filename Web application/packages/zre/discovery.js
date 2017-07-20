@@ -145,7 +145,7 @@ zreObserver.start(function() {
 })
 
 process.on('SIGTERM', function() {
-	console.log('V3 stopping zre node')
+	console.log('V4 stopping zre node')
 	zreObserver.stop()
 		.then(() => process.exit(0))
 		.catch(() => process.exit(128 + 1))

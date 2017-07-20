@@ -1,6 +1,7 @@
 import {ModuleDescriptor, EventDescriptor, registerModuleDescriptor, registerDetailPageName} from 'meteor/visualisation:extension-system'
 
 import './Event-views/shout-lineview'
+import './Event-views/whisper-lineview'
 import './Module-views/whisper-detailViewPage'
 import './Module-views/shout-detailViewPage'
 import './Module-views/meta-detailViewPage'
@@ -14,12 +15,12 @@ const zreModuleDescriptor = new ModuleDescriptor({
 	detailPageViews: ['EventDetailPageContainer', 'ZreWhisperDetailViewPage', 'ZreMetaDetailViewPage']
 })
 
-const shoutEventDescriptor = new EventDescriptor({
-	lineView: 'ZreShoutLineView'
-})
+const shoutEventDescriptor = new EventDescriptor({lineView: 'ZreShoutLineView'})
+const whisperEventDescriptor = new EventDescriptor({lineView: 'ZreWhisperLineView'})
 
 registerModuleDescriptor(zreModuleType, zreModuleDescriptor)
 zreModuleDescriptor.registerEvent('shout', shoutEventDescriptor)
+zreModuleDescriptor.registerEvent('whisper', whisperEventDescriptor)
 
 registerDetailPageName('Shout', 'ZreShoutDetailViewPage')
 registerDetailPageName('Submodules graph', 'SubmodulesForceGraphDetailViewPage')
