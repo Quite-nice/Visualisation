@@ -12,6 +12,7 @@ This package exports:
  export const zreNodeModuleIdPrefix = 'ZRE-node:'
  export const whisperMethodName = 'ZRE.whisper'
  export const shoutMethodName = 'ZRE.shout'
+ export const restartMethodName = 'ZRE.restart'
 ```
 
 To import some of these constants in your own code, write:
@@ -19,6 +20,38 @@ To import some of these constants in your own code, write:
 ```javascript
 import {shoutMethodName, whisperMethodName} from 'meteor/visualisation:zre'
 ```
+
+## Methods
+
+### Shout
+
+```javascript
+import {Meteor} from 'meteor/meteor'
+import {shoutMethodName} from 'meteor/visualisation:zre'
+
+Meteor.call(shoutMethodName, group, message)
+```
+
+### Whisper
+
+```javascript
+import {Meteor} from 'meteor/meteor'
+import {whisperMethodName} from 'meteor/visualisation:zre'
+
+Meteor.call(whisperMethodName, moduleId, message)
+```
+
+Note that you should not provide the ZRE peer id of the intended receiver but the module id that corresponds to this peer. (see [Modules](#modules))
+
+### Restart
+
+```javascript
+import {Meteor} from 'meteor/meteor'
+import {restartMethodName} from 'meteor/visualisation:zre'
+
+Meteor.call(restartMethodName)
+```
+
 
 ## Collection insertions
 
@@ -137,4 +170,18 @@ When a ZRE node (with `peerID`) **leaves** a `group`, the following object is ad
 }
 ```
 
-#### 
+#### on Exit
+
+When a ZRE node (with `peerID`) **exits** the network, the following object is added to `Events`
+
+```javascript
+{
+  "senderId": zreNodeModuleIdPrefix + peerID,
+  "type": "state",
+  "payload": 0,
+  "date": new Date()
+}
+```
+
+
+
