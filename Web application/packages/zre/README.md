@@ -45,6 +45,8 @@ Note that you should not provide the ZRE peer id of the intended receiver but th
 
 ### Restart
 
+To restart the ZRE node call the method `restartMethodName`
+
 ```javascript
 import {Meteor} from 'meteor/meteor'
 import {restartMethodName} from 'meteor/visualisation:zre'
