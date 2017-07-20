@@ -29,6 +29,7 @@ zreObserver.on('connect', Meteor.bindEnvironment((id, name, header) => {
 			type: zreNodeModuleType,
 			header,
 			name,
+			groups: [],
 			parentId: rootModule._id
 		}
 	})
@@ -90,12 +91,22 @@ zreObserver.on('join', Meteor.bindEnvironment((peerId, name, group) => {
 		}
 	})
 }))
+
 zreObserver.on('leave', Meteor.bindEnvironment((peerId, name, group) => {
 	console.log(peerId, name, 'leaves', group)
-	Modules.update(visualisationIdFor(peerId), {
+	const visualisationId = visualisationIdFor(peerId)
+
+	Modules.update(visualisationId, {
 		$pullAll: {
 			groups: [group]
 		}
+	})
+
+	Events.insert({
+		senderId: visualisationId,
+		type: 'leave',
+		payload: group,
+		date: new Date()
 	})
 }))
 
@@ -122,6 +133,13 @@ zreObserver.start(function() {
 	})
 
 	zreObserver.join('visualisation')
+})
+
+process.on('SIGTERM', function() {
+	console.log('V3 stopping zre node')
+	zreObserver.stop()
+		.then(() => process.exit(0))
+		.catch(() => process.exit(128 + 1))
 })
 
 function visualisationIdFor(zreID) {
