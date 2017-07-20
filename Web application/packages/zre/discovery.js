@@ -11,6 +11,11 @@ Modules.remove({type: zreNodeModuleType})
  */
 const connectionWaitList = new Map()
 
+/**
+ * @type {Set<string>}
+ */
+const groups = new Set()
+
 zreObserver.on('connect', Meteor.bindEnvironment((id, name, header) => {
 	const connection = connectionWaitList.get(id)
 	if (connection === undefined) {
@@ -85,9 +90,11 @@ zreObserver.on('join', Meteor.bindEnvironment((peerId, name, group) => {
 				groups: group
 			}
 		})
-		if (zreObserver.getGroup(group) === undefined || !zreObserver.getGroup(group).hasOwnProperty(zreObserver.getIdentity())) {
+
+		if (!groups.has(group)) {
 			console.log('Gui node is joining', group)
 			zreObserver.join(group)
+			groups.add(group)
 		}
 	})
 }))
@@ -95,6 +102,8 @@ zreObserver.on('join', Meteor.bindEnvironment((peerId, name, group) => {
 zreObserver.on('leave', Meteor.bindEnvironment((peerId, name, group) => {
 	console.log(peerId, name, 'leaves', group)
 	const visualisationId = visualisationIdFor(peerId)
+
+	groups.delete(group)
 
 	Modules.update(visualisationId, {
 		$pullAll: {
